@@ -1,0 +1,9 @@
+{
+    "path" : "~/Documents/stats_website/content/post",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

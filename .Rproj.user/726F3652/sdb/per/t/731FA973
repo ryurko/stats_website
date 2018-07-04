@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "+++\n# About/Biography widget.\n\ndate = \"2016-04-20T00:00:00\"\ndraft = false\n\nwidget = \"about\"\n\n# Order that this section will appear in.\nweight = 1\n\n# List your academic interests.\n[interests]\n  interests = [\n    \"Clustering\",\n    \"Classification\",\n    \"Ensemble methods\",\n    \"Computational statistics\",\n    \"Statistics in sports\"\n  ]\n\n# List your qualifications (such as academic degrees).\n[[education.courses]]\n  course = \"BS in Statistics\"\n  institution = \"Carnegie Mellon University\"\n  year = 2015\n \n+++\n\n# About\n\nI'm a first year PhD student in the [Department of Statistics & Data Science](http://www.stat.cmu.edu/) at [Carnegie Mellon University](http://www.cmu.edu/).\n\nCurrently, I am working with [Rebecca Nugent](http://www.stat.cmu.edu/~rnugent/PUBLIC/) on variable selection for consistent clustering and clustering/classification work on ensemble prediction.\n\nI am also working with [Sam Ventura](http://www.stat.cmu.edu/~sventura/) and [Max Horowitz](https://twitter.com/bklynmaks) to develop new, and [reproducible, advanced metrics for the NFL](pdf/nflWAR_JQAS_public.pdf).\n\nAs an undergrad, I was a founding member of the [Carnegie Mellon Sports Analytics club.](http://www.cmusportsanalytics.com/)\n\n[CV](pdf/update_cv.pdf)",
+    "created" : 1523063868919.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "667351601",
+    "id" : "731FA973",
+    "lastKnownWriteTime" : 1517429335,
+    "last_content_update" : 1517429335,
+    "path" : "~/Documents/stats_website/content/home/about.md",
+    "project_path" : "content/home/about.md",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

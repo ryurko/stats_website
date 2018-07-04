@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "+++\ntitle = \"Posts\"\ndate = \"2017-01-01T00:00:00Z\"\nmath = false\nhighlight = false\n\n# Optional featured image (relative to `static/img/` folder).\n[header]\nimage = \"\"\ncaption = \"\"\n\n+++\n",
+    "created" : 1523020221862.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3820990941",
+    "id" : "C9FAE5FE",
+    "lastKnownWriteTime" : 1500322845,
+    "last_content_update" : 1500322845,
+    "path" : "~/Documents/stats_website/content/post/_index.md",
+    "project_path" : "content/post/_index.md",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

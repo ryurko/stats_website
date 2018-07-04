@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: Carnegie Mellon Baseball Analytics Workshop\nauthor: ~\ndate: '2018-04-06'\nslug: baseballworkshop\ncategories: []\ntags: []\n---\n\n# Welcome!\n\nHosted by the [CMU Statistics \\& Data Science Department](http://www.stat.cmu.edu/) and [Carnegie Mellon Sports Analytics Club](https://www.cmusportsanalytics.com/), the [Carnegie Mellon University Baseball Analytics Workshop](https://cmusportsanalytics.com/workshop.html) is an interactive workshop focusing on data exploration skills with baseball data!\n\n# Intro to Exploring Baseball Data with R\n\nThe starter code script for the first of the workshop, using `dplyr` and `ggplot2` to explore historical baseball data from the `Lahman` package is available [here](https://raw.githubusercontent.com/ryurko/Carnegie-Mellon-Baseball-Analytics-Workshop/master/introduction_to_r_baseball.R).\n\n# PITCHf/x and Statcast Resources\n\nThe starter code script for the second half of the workshop, dedicated to using PITCHf/x and Statcast data for creating a game plan for the Pirates against the Reds, is available [here](https://raw.githubusercontent.com/ryurko/Carnegie-Mellon-Baseball-Analytics-Workshop/master/game_plan_code.R).\n\nAdditional resources that will be useful for working with this data include:\n\n+ [PITCHf/x](https://fastballs.wordpress.com/2007/08/02/glossary-of-the-gameday-pitch-fields/) and [Statcast](https://www.fangraphs.com/tht/research-notebook-new-format-for-statcast-data-export-at-baseball-savant/) glossary\n+ [Pitch type information](https://www.fangraphs.com/library/pitch-type-abbreviations-classifications/)\n+ [Jim Albert's blog: Exploring Baseball Data with R](https://baseballwithr.wordpress.com/)\n+ [Bill Petti's `baseballr` package](http://billpetti.github.io/baseballr/)\n+ [Carson Sievert's `pitchRx` package](http://pitchrx.cpsievert.me/)\n\nThe repository for all of the workshop's material is located [here](https://ryurko.github.io/Carnegie-Mellon-Baseball-Analytics-Workshop/).\n\nAll PITCHf/x and Statcast data, made available by [MLBAM](https://baseballsavant.mlb.com/), was accessed using the `baseballr` package.\n",
+    "created" : 1523020489148.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3471751565",
+    "id" : "2D2CA440",
+    "lastKnownWriteTime" : 1523068603,
+    "last_content_update" : 1523068603726,
+    "path" : "~/Documents/stats_website/content/post/2018-04-06-baseballworkshop-rmd.md",
+    "project_path" : "content/post/2018-04-06-baseballworkshop-rmd.md",
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "+++\n# Recent and Upcoming Talks widget.\n\ndate = \"2016-04-20T00:00:00\"\ndraft = false\n\ntitle = \"Recent & Upcoming Talks\"\nsubtitle = \"\"\nwidget = \"talks\"\n\n# Order that this section will appear in.\nweight = 30\n\n# Number of talks to list.\ncount = 10\n\n# Show talk details (such as abstract)? (true/false)\ndetailed_list = false\n\n+++\n\n",
+    "created" : 1523020441368.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "499159009",
+    "id" : "C3CB2CDB",
+    "lastKnownWriteTime" : 1500322845,
+    "last_content_update" : 1500322845,
+    "path" : "~/Documents/stats_website/content/home/talks.md",
+    "project_path" : "content/home/talks.md",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

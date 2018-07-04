@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayes on Ron Yurko</title>
+    <link>http://www.stat.cmu.edu/~ryurko/tags/bayes/</link>
+    <description>Recent content in Bayes on Ron Yurko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Ron Yurko</copyright>
+    <lastBuildDate>Wed, 30 May 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/~ryurko/tags/bayes/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bayesian Baby Steps: Intro with JuJu</title>
+      <link>http://www.stat.cmu.edu/~ryurko/post/bayesian-baby-steps-intro/</link>
+      <pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/post/bayesian-baby-steps-intro/</guid>
+      <description>&lt;div id=&#34;first-steps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;First steps&lt;/h2&gt;
+&lt;p&gt;I was originally thinking of writing a blog post about multilevel models (aka
+hierachical, mixed, random effects) because of how useful they are for measuring
+player performance in sports&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; (&lt;a href=&#34;https://arxiv.org/abs/1802.00998&#34;&gt;shameless self promotion for nflWAR here!&lt;/a&gt;).
+But the more I thought about it, the more I realized how ill-minded of an idea
+that was. Instead, I want to build up the intuition for how and why one would
+want to use a full Bayesian multilevel model. My brother recommended that I checkout &lt;a href=&#34;https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/1482253445&#34;&gt;Statistical Rethinking&lt;/a&gt;
+by &lt;a href=&#34;http://xcelab.net/rm/&#34;&gt;Richard McElreath&lt;/a&gt;. It’s an amazing introduction to
+Bayesian data analysis that I recommend to anyone interested in learning more.
+It’s incredibly intuitive and paced very well, for instance MCMC isn’t covered
+until halfway through the book so you understand why you’re using it.
+Taking what I have learned from the book, I’m writing a series of posts that will
+hopefully build the basic understanding of how Bayesian inference works starting
+with simple updating and gradually working up towards multilevel modeling. This
+series is called Bayesian Baby Steps for a reason, and there will be &lt;em&gt;What About Bob?&lt;/em&gt;
+GIFs. Because of my work with &lt;a href=&#34;https://github.com/maksimhorowitz/nflscrapR&#34;&gt;&lt;code&gt;nflscrapR&lt;/code&gt;&lt;/a&gt;,
+all my examples will be using NFL data which is ripe for Bayesian data analysis.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://media2.giphy.com/media/Hg3LAJ9i9yCic/giphy-downsized.gif?cid=e1bb72ff5b0f54d23643475745f46c52&#34; alt=&#34;Bayes Bob!&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Bayes Bob!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;catch-rate-example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Catch rate example&lt;/h2&gt;
+&lt;p&gt;You’re trying to evaluate a receiver’s ability to catch a football. Let’s
+pretend you can take the following (completely unrealistic) strategy: you tell
+your quarterback to repeatedly throw the ball to your receiver in practice,
+recording each time whether or not they caught the ball. We’ll let C stand for
+catch and D stand for drop. We could carry out this procedure any number of
+times, for instance we could record the following ten pass attempts to our
+receiver:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sample(c(&amp;quot;C&amp;quot;, &amp;quot;D&amp;quot;), size = 10, replace = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can describe the &lt;em&gt;story&lt;/em&gt; for this &lt;em&gt;data generating process&lt;/em&gt; quite easily,
+informing us how to simulate new data. In this case:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Our receiver’s true catch rate is &lt;code&gt;p&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Each single pass attempt has a probability &lt;code&gt;p&lt;/code&gt; of being caught, thus meaning
+a pass has a probability of &lt;code&gt;1 - p&lt;/code&gt; of being dropped by our receiver.&lt;/li&gt;
+&lt;li&gt;We assume each pass attempt is independent of one another.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We’re now ready to explore this probability model and how to handle observing
+data to update our beliefs about our receiver’s catch rate &lt;code&gt;p&lt;/code&gt; using Bayesian
+inference.&lt;/p&gt;
+&lt;p&gt;In a Bayesian model, there are three things we need to choose to ultimately
+represent the number of ways our data can be generated:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Likelihood - plausibility of our observed data given a receiver’s catch rate
+&lt;code&gt;p&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Parameter - our quantity of interest &lt;code&gt;p&lt;/code&gt;, which we want to learn about from
+our data&lt;/li&gt;
+&lt;li&gt;Prior - our initial belief regarding different values for &lt;code&gt;p&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Based on the &lt;em&gt;story&lt;/em&gt; above, it’s pretty easy to see that we can just use the
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Binomial_distribution&#34;&gt;binomial distribution&lt;/a&gt;
+for our likelihood since we’re assuming each of our &lt;code&gt;n&lt;/code&gt; pass attempts is
+independent and that the receiver’s catch probability &lt;code&gt;p&lt;/code&gt; is the same for every
+attempt. We can then write the probability of observing &lt;code&gt;c&lt;/code&gt; receptions in
+&lt;code&gt;n&lt;/code&gt; pass attempts with a catch probability &lt;code&gt;p&lt;/code&gt; as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\text{Pr}(c | n, p) = \frac{n!}{c!(n - c)!}p^c (1 - p)^{n-c}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We then use good old &lt;a href=&#34;https://en.wikipedia.org/wiki/Bayes%27_theorem&#34;&gt;Bayes’ theorem&lt;/a&gt;
+to provide us with the probability of a value for the receiver’s catch
+probability &lt;code&gt;p&lt;/code&gt; given our observed data:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\text{Pr}(p | c) = \frac{\text{Pr}(c|p) \text{Pr}(p)}{\text{Pr}(c)}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I personally like the way McElreath refers to the denonimator,
+&lt;span class=&#34;math inline&#34;&gt;\(\text{Pr}(c)\)&lt;/span&gt;, as the &lt;em&gt;average&lt;/em&gt; likelihood of the observed data over &lt;code&gt;p&lt;/code&gt;. All
+it is is an expectation over all our possible values for &lt;code&gt;p&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\text{Pr}(c) = \text{E}\big[\text{Pr}(c|p)\big] = \int \text{Pr}(c|p) \text{Pr}(p)dp
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This denonimator is known as the &lt;em&gt;normalizing constant&lt;/em&gt;
+because it ensures that our posterior density integrates to one, i.e. our
+posterior is actually a probability. What often happens is that this
+term is extremely difficult to compute. We usually consider the
+posterior up to the normalizing constant as the product between the likelihood
+and prior. Or if this form isn’t tractable, we resort to some approximation
+technique such as grid-based which we cover below, as well as quadratic and Markov
+Chain Monte Carlo (MCMC) methods. However we’ll cover those in a post later,
+remember baby steps people!&lt;/p&gt;
+&lt;p&gt;One notion that I completely glossed over above is how McElreath motivates the
+mechanism for Bayesian analysis. He provides a walkthrough of the &lt;em&gt;garden of
+forking data&lt;/em&gt; describing how, in formulating the posterior above, we’re really
+just counting paths. We simply use multiplication as a quick way to count all
+the ways from our prior number of paths through our new number. McElreath also
+makes the excellent remark that &lt;strong&gt;Bayesian inference is not defined by Bayes’
+theorem&lt;/strong&gt;. Everyone learns about Bayes theorem with some trivial examples like
+&lt;a href=&#34;http://www.milefoot.com/math/stat/prob-bayes.htm&#34;&gt;smoking and lung cancer&lt;/a&gt;,
+but that is not the point of Bayesian approaches. The point is to &lt;strong&gt;appropriately
+measure and account for the uncertainty in our models and parameters&lt;/strong&gt;. We’re not
+satisfied with stating, “Oh our receiver caught 5 of 5 passes - he never drops
+a pass!” - we want to capture the uncertainty in his reception probability
+given what we already knew, such as the belief it’s pretty unlikely his catch
+rate is a perfect 100%.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;grid-approximation-with-juju&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Grid approximation with JuJu&lt;/h2&gt;
+&lt;p&gt;Even though from probability theory we know that every combination of prior,
+likelihood, and data constitutes a unique posterior - in many cases we cannot
+derive the resulting posterior. This leads to the use of approximation
+techniques such as grid approximation, quadratic approximation, and MCMC to
+name a few. In this post we’ll cover grid approximation because of its
+simplicity, which makes it a great way to learn the basics behind Bayesian
+updating.&lt;/p&gt;
+&lt;p&gt;Let’s expand on our catch rate model a bit by going back in time, and assume
+we’re working the Pittsburgh Steelers heading into the 2017 NFL season. We
+drafted JuJu Smith-Schuster to add another option to the offense and want to
+evaluate his performance as the season goes on based on his catch rate.
+Using the &lt;a href=&#34;https://github.com/maksimhorowitz/nflscrapR&#34;&gt;&lt;code&gt;nflscrapR&lt;/code&gt;&lt;/a&gt; package we
+can easily get all plays from the 2017 season. You can use the &lt;code&gt;season_play_by_play()&lt;/code&gt;
+function from the package to scrape the data, or you can access the files I
+saved here in my &lt;a href=&#34;https://ryurko.github.io/nflscrapR-data/&#34;&gt;&lt;code&gt;nflscrapR&lt;/code&gt;-data repository&lt;/a&gt;.
+The following code will access the 2017 play-by-play data, filter down only
+to the pass attempts to JuJu, then create a dataset that summarizes his
+performance in each game he played along with cumulative totals after each game:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Access the tidyverse (install if you don&amp;#39;t have it!)
+# install.packages(&amp;quot;tidyverse&amp;quot;)
+library(tidyverse)
+
+# Load the 2017 play-by-play data from my repository:
+juju_games &amp;lt;- 
+  read_csv(&amp;quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/data/season_play_by_play/pbp_2017.csv&amp;quot;) %&amp;gt;%
+  # Filter down only to the pass attempts to JuJu based on his GSIS ID 00-0033857:
+  filter(Receiver_ID == &amp;quot;00-0033857&amp;quot;,
+         PassAttempt == 1) %&amp;gt;%
+  # Only select the GameID and PassOutcome columns:
+  select(GameID, PassOutcome) %&amp;gt;%
+  # Calculate the number of receptions, targets, and catch rate in each game:
+  group_by(GameID) %&amp;gt;%
+  summarise(receptions = length(which(PassOutcome == &amp;quot;Complete&amp;quot;)),
+            targets = n(),
+            catch_rate = receptions / targets) %&amp;gt;%
+  # Calculate cumulative stats:
+  mutate(total_receptions = cumsum(receptions),
+         total_targets = cumsum(targets),
+         total_catch_rate = total_receptions / total_targets,
+         # Columns to be used later:
+         index = 1:n(),
+         game_index = paste(&amp;quot;game_&amp;quot;, index, sep = &amp;quot;&amp;quot;),
+         game_index = fct_relevel(factor(game_index),
+                                  &amp;quot;game_1&amp;quot;, &amp;quot;game_2&amp;quot;, &amp;quot;game_3&amp;quot;,
+                                  &amp;quot;game_4&amp;quot;, &amp;quot;game_5&amp;quot;, &amp;quot;game_6&amp;quot;,
+                                  &amp;quot;game_7&amp;quot;, &amp;quot;game_8&amp;quot;, &amp;quot;game_9&amp;quot;,
+                                  &amp;quot;game_10&amp;quot;, &amp;quot;game_11&amp;quot;, &amp;quot;game_12&amp;quot;,
+                                  &amp;quot;game_13&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Grid approximation provides us with a very simple set of steps to update our
+evaluation of JuJu’s performance. The first step is to initialize our grid of
+values for JuJu’s &lt;code&gt;p&lt;/code&gt; we’re going to estimate the posterior probability for,
+which in this case will be increments of 5% from 0 to 1:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p_grid &amp;lt;- seq(from = 0, to = 1, by = .05)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we define our prior belief for each of the possible values in the grid.
+Just to demonstrate, we’ll use a flat prior which means we initially believe
+each of the grid values for &lt;code&gt;p&lt;/code&gt; are equally likely. I expand on the prior below,
+but for now we use the following:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prior &amp;lt;- rep(1, 21)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next we’ll calculate the likelihood for each of the grid values for &lt;code&gt;p&lt;/code&gt; using
+the binomial distribution from above. We’ll calculate the likelihood as if only
+one game was played (just grabbing the receptions and targets values from the
+first row of the data):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;likelihood &amp;lt;- dbinom(x = juju_games$receptions[1],
+                     size = juju_games$targets[1],
+                     prob = p_grid)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’re then able to calculate the numerator of Bayes’ theorem by multiplying the
+prior by the likelihood, providing the unstandardized posterior for each of the
+grid values:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bayes_numerator &amp;lt;- likelihood * prior&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To arrive at the posterior estimates, we just follow Bayes’ theorem and take
+these products and divide them by the sum of the numerators for each value on
+the grid. This is of course easy to do with in &lt;code&gt;R&lt;/code&gt; with vectorized operations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;posterior &amp;lt;- bayes_numerator / sum(bayes_numerator)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our grid approximation for the posterior of JuJu’s catch rate after one game
+can easily be viewed:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(p_grid = p_grid, p_posterior = posterior) %&amp;gt;%
+  ggplot(aes(x = p_grid, y = p_posterior)) +
+  geom_point(size = 3, color = &amp;quot;darkblue&amp;quot;) + 
+  geom_line(color = &amp;quot;darkblue&amp;quot;) +
+  # Add a vertical line for JuJu&amp;#39;s observed catch rate:
+  geom_vline(xintercept = juju_games$catch_rate[1], color = &amp;quot;darkorange&amp;quot;,
+             linetype = &amp;quot;dashed&amp;quot;, size = 3, alpha = .5) +
+  # Label!
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Posterior probability&amp;quot;,
+       title = &amp;quot;Posterior approximation for\nJuJu&amp;#39;s catch rate after one game&amp;quot;) +
+  # Clean it up:
+  theme_bw() + theme(axis.text = element_text(size = 10), 
+                     title = element_text(size = 10)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;384&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This gives us a full posterior distribution for JuJu’s catch rate, rather than
+just his observed value of 0.75 after one game (indicated by the orange dashed
+line). We can also carry out this grid approximation procedure to generate
+posterior distributions for his catch rate after every game based on his
+running totals:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a data frame by applying the grid approximation steps to each row
+# of juju_games:
+game_posteriors &amp;lt;- map_dfc(c(1:nrow(juju_games)),
+                             function(x) {
+                               p_grid &amp;lt;- seq(from = 0, to = 1, by = .05)
+                               prior &amp;lt;- rep(1, 21)
+                               likelihood &amp;lt;- dbinom(x = juju_games$total_receptions[x],
+                                                    size = juju_games$total_targets[x],
+                                                    prob = p_grid)
+                               bayes_numerator &amp;lt;- likelihood * prior
+                               posterior &amp;lt;- bayes_numerator / sum(bayes_numerator)
+                               # Return this as a data frame:
+                               result &amp;lt;- data.frame(posterior)
+                               colnames(result) &amp;lt;- paste(&amp;quot;game_&amp;quot;, x, sep = &amp;quot;&amp;quot;)
+                               return(result)
+                             })
+
+# Join these columns with p_grid and column for the prior probability:
+data.frame(p_grid = p_grid, prior = rep(1 / 21, 21)) %&amp;gt;%
+  bind_cols(game_posteriors) %&amp;gt;% 
+  # Gather the columns so the data is long, one row for each week and grid value
+  gather(key = &amp;quot;game_index&amp;quot;, value = &amp;quot;posterior_prob&amp;quot;, -p_grid) %&amp;gt;%
+  # Relevel the game_index variable:
+  mutate(game_index = fct_relevel(factor(game_index),
+                                  &amp;quot;prior&amp;quot;, &amp;quot;game_1&amp;quot;, &amp;quot;game_2&amp;quot;, &amp;quot;game_3&amp;quot;,
+                                  &amp;quot;game_4&amp;quot;, &amp;quot;game_5&amp;quot;, &amp;quot;game_6&amp;quot;,
+                                  &amp;quot;game_7&amp;quot;, &amp;quot;game_8&amp;quot;, &amp;quot;game_9&amp;quot;,
+                                  &amp;quot;game_10&amp;quot;, &amp;quot;game_11&amp;quot;, &amp;quot;game_12&amp;quot;,
+                                  &amp;quot;game_13&amp;quot;)) %&amp;gt;%
+  # Visualize the posteriors for each game:
+  ggplot(aes(x = p_grid, y = posterior_prob)) + 
+  geom_point(size = 2, color = &amp;quot;darkblue&amp;quot;) + 
+  geom_line(color = &amp;quot;darkblue&amp;quot;) +
+  facet_wrap(~ game_index) +
+  # Add vertical lines for each cumulative observed rate
+  geom_vline(data = juju_games, 
+             aes(xintercept = total_catch_rate), color = &amp;quot;darkorange&amp;quot;,
+             linetype = &amp;quot;dashed&amp;quot;, size = 1, alpha = .5) +
+  geom_text(data = juju_games, size = 3,
+             x = .25, y = .3, aes(label = paste(&amp;quot;Caught&amp;quot;, 
+                                                receptions, &amp;quot;of&amp;quot;,
+                                                targets, sep = &amp;quot; &amp;quot;))) +
+  # Label!
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Posterior probability&amp;quot;,
+       title = &amp;quot;Posterior approximation for JuJu&amp;#39;s catch rate after each game&amp;quot;) +
+  # Clean it up:
+  theme_bw() + theme(axis.text.y = element_text(size = 10), 
+                     axis.text.x = element_text(size = 6),
+                     title = element_text(size = 10)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This plot gives us a pretty clear view of Bayesian updating. We start with a flat
+prior, believing any catch rate between 0 and 1 is equally likely. Then we keep
+updating our belief or understanding of what JuJu’s catch is likely to be given
+his in game performances. Each dashed line marks his cumulative catch rate which,
+should not come as a surprise, is the most likely value after each game. After
+his second game where he only caught two of six passes we see a shift in the
+distribution. But as we keep observing games, the distributions move and become
+more concentrated around his final season catch rate of roughly 0.73. &lt;em&gt;This exact
+same process holds and yields the same results if we updated after each individual
+target&lt;/em&gt;, after observing one event the resulting posterior becomes the prior for
+the next target. Which means that, although I generated the plot above using the
+flat prior andcumulative stats after each game, I could’ve also generated the same figure using
+the &lt;em&gt;previous game’s posterior as the prior for the following single game performance&lt;/em&gt;.
+It’s just simpler from a coding point of view to present all of the data,
+but breaking it up individually provides us with the true step-wise view of updating.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prior-knowledge&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prior knowledge&lt;/h2&gt;
+&lt;p&gt;You’re probably thinking this example is dumb since I started with a flat prior.
+And you’re right! Why would anyone believe a receiver’s catch is equally likely
+to be 0 as is 1? You might’ve noticed the fact that the posteriors are even just
+proportional to the likelihood, so we’re really not taking advantage of the
+purpose of a prior distribution. We can use priors to incorporate expert
+knowledge into our model, helping us limit parameter values to a range that
+makes sense. If you have ever learned about regularized regression, you can
+think of priors as accomplishing a similar task. &lt;a href=&#34;http://www2.stat.duke.edu/~rcs46/lectures_2015/14-bayes1/14-bayes3.pdf&#34;&gt;In fact Lasso regression can be intepreted this way.&lt;/a&gt;
+People often complain that the choice of prior is subjective, but if you think
+data analysis is entirely objective &lt;a href=&#34;https://psyarxiv.com/qkwst/&#34;&gt;then you’re ignorant of the truth.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To choose a reasonable prior for JuJu’s catch rate, we’re going to take a data-driven
+approach or use &lt;a href=&#34;https://en.wikipedia.org/wiki/Empirical_Bayes_method&#34;&gt;Empirical Bayes&lt;/a&gt;.
+David Robinson has an excellent &lt;a href=&#34;http://varianceexplained.org/r/empirical_bayes_baseball/&#34;&gt;series of posts&lt;/a&gt;
+and &lt;a href=&#34;https://www.amazon.com/Introduction-Empirical-Bayes-Examples-Statistics-ebook/dp/B06WP26J8Q&#34;&gt;book&lt;/a&gt;
+on Empirical Bayes using baseball batting averages as an example. We’re going to
+use the same approach here but in the context of our football problem. We’ll estimate our
+prior using the distribution of catch rates by receivers in the 2016 season.
+With my &lt;a href=&#34;https://github.com/ryurko/nflWAR&#34;&gt;&lt;code&gt;nflWAR&lt;/code&gt;&lt;/a&gt; package it’s pretty
+easy to grab statistics by players for certain positions. Here
+we only grab catch rates by WRs in 2016 with at least 25 targets:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;devtools&amp;quot;)
+# devtools::install_github(&amp;quot;ryurko/nflWAR&amp;quot;)
+
+library(nflWAR)
+
+# Ignore any messages you see
+wr_catch_rates &amp;lt;- get_pbp_data(2016) %&amp;gt;%
+  add_positions(2016) %&amp;gt;%
+  add_model_variables() %&amp;gt;%
+  prepare_model_data() %&amp;gt;%
+  add_position_tables() %&amp;gt;%
+  join_position_statistics() %&amp;gt;%
+  pluck(&amp;quot;WR_table&amp;quot;) %&amp;gt;%
+  select(Player_ID_Name, Rec_Perc, Targets) %&amp;gt;%
+  filter(Targets &amp;gt;= 25)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next we display our distribution of catch rates in the 2016 season:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wr_catch_rates %&amp;gt;%
+  ggplot(aes(x = Rec_Perc)) + 
+  geom_density(color = &amp;quot;darkblue&amp;quot;) +
+  geom_rug(color = &amp;quot;darkblue&amp;quot;) + 
+  theme_bw() +
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Density&amp;quot;, 
+       title = &amp;quot;Distribution of WR catch rates in 2016 (minimum 25 targets)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We see concentration of catch rates between 0.5 and 0.6 with no receiver
+having a catch rate less than 0.4 or above 0.8. Because of the shape of this
+distribution and from the fact a receiver’s catch rate must be between 0 and 1,
+it makes sense to use a &lt;a href=&#34;https://en.wikipedia.org/wiki/Beta_distribution&#34;&gt;beta distribution&lt;/a&gt;
+estimated from this data as our prior. This means we’re assuming&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+p \sim \text{Beta}(\alpha_0, \beta_0)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where we have to estimate the hyper-parameters (parameters for priors), &lt;span class=&#34;math inline&#34;&gt;\(\alpha_0\)&lt;/span&gt;
+and &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt;, from our data. A very simple way to do this in &lt;code&gt;R&lt;/code&gt; is with the
+&lt;a href=&#34;https://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance&#34;&gt;method of moments using the mean and variance&lt;/a&gt; following the example in Robinson’s post:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Use the fitdistr function from the MASS library:
+prior_beta_model &amp;lt;- MASS::fitdistr(wr_catch_rates$Rec_Perc, dbeta, 
+                                   start = list(shape1 = 10, shape2 = 10))
+
+# Extract the approximated  priors
+alpha0 &amp;lt;- prior_beta_model$estimate[1]
+beta0 &amp;lt;- prior_beta_model$estimate[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ll now follow our grid approximation steps from before but instead use
+the approximated beta prior:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a data frame by applying the grid approximation steps to each row
+# of juju_games:
+new_game_posteriors &amp;lt;- map_dfc(c(1:nrow(juju_games)),
+                             function(x) {
+                               p_grid &amp;lt;- seq(from = 0, to = 1, by = .05)
+                               prior &amp;lt;- dbeta(p_grid, alpha0, beta0)
+                               likelihood &amp;lt;- dbinom(x = juju_games$total_receptions[x],
+                                                    size = juju_games$total_targets[x],
+                                                    prob = p_grid)
+                               bayes_numerator &amp;lt;- likelihood * prior
+                               posterior &amp;lt;- bayes_numerator / sum(bayes_numerator)
+                               # Return this as a data frame:
+                               result &amp;lt;- data.frame(posterior)
+                               colnames(result) &amp;lt;- paste(&amp;quot;game_&amp;quot;, x, sep = &amp;quot;&amp;quot;)
+                               return(result)
+                             })
+
+# Join these columns with p_grid and column for the prior probability:
+data.frame(p_grid = p_grid, 
+           prior = dbeta(p_grid, alpha0, beta0) / sum(dbeta(p_grid, alpha0, beta0))) %&amp;gt;%
+  bind_cols(new_game_posteriors) %&amp;gt;% 
+  # Gather the columns so the data is long, one row for each week and grid value
+  gather(key = &amp;quot;game_index&amp;quot;, value = &amp;quot;posterior_prob&amp;quot;, -p_grid) %&amp;gt;%
+  # Relevel the game_index variable:
+  mutate(game_index = fct_relevel(factor(game_index),
+                                  &amp;quot;prior&amp;quot;, &amp;quot;game_1&amp;quot;, &amp;quot;game_2&amp;quot;, &amp;quot;game_3&amp;quot;,
+                                  &amp;quot;game_4&amp;quot;, &amp;quot;game_5&amp;quot;, &amp;quot;game_6&amp;quot;,
+                                  &amp;quot;game_7&amp;quot;, &amp;quot;game_8&amp;quot;, &amp;quot;game_9&amp;quot;,
+                                  &amp;quot;game_10&amp;quot;, &amp;quot;game_11&amp;quot;, &amp;quot;game_12&amp;quot;,
+                                  &amp;quot;game_13&amp;quot;)) %&amp;gt;%
+  # Visualize the posteriors for each game:
+  ggplot(aes(x = p_grid, y = posterior_prob)) + 
+  geom_point(size = 2, color = &amp;quot;darkblue&amp;quot;) + 
+  geom_line(color = &amp;quot;darkblue&amp;quot;) +
+  facet_wrap(~ game_index) +
+  # Add vertical lines for each cumulative observed rate
+  geom_vline(data = juju_games, 
+             aes(xintercept = total_catch_rate), color = &amp;quot;darkorange&amp;quot;,
+             linetype = &amp;quot;dashed&amp;quot;, size = 1, alpha = .5) +
+  geom_text(data = juju_games, size = 3,
+             x = .25, y = .3, aes(label = paste(&amp;quot;Caught&amp;quot;, 
+                                                receptions, &amp;quot;of&amp;quot;,
+                                                targets, sep = &amp;quot; &amp;quot;))) +
+  # Label!
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Posterior probability&amp;quot;,
+       title = &amp;quot;Posterior approximation for JuJu&amp;#39;s catch rate after each game&amp;quot;) +
+  # Clean it up:
+  theme_bw() + theme(axis.text.y = element_text(size = 10), 
+                     axis.text.x = element_text(size = 6),
+                     title = element_text(size = 10)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;768&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now with this informed prior we see a clear difference in the updating procedure
+compared to before. With the flat prior the catch rate with the peak posterior
+probability was always JuJu’s cumulative catch rate after the game. Now we see
+how the prior distribution applies some resistance to the approximated posterior.
+For instance, after his second game where he only caught two of six targets,
+JuJu’s catch rate dropped to 0.5 but the posterior doesn’t shift as far to the
+left because of the prior pulling it back. This process continues the whole way,
+with the most likely value after the last game slightly less than JuJu’s catch
+rate after the whole season - hence providing some regularization for our
+likely value of &lt;code&gt;p&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All I’ve talked about so far is using grid-based approach to reach this posterior
+approximation. But we actually know the analytical calculation&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; for this example’s posterior
+since the beta distribution is the conjugate prior to the binomial resulting
+in a posterior that also follows the beta distribution (not the
+focus of this post but &lt;a href=&#34;https://en.wikipedia.org/wiki/Conjugate_prior#Example&#34;&gt;here’s more info&lt;/a&gt;).
+We can calculate this known result quite easily, displaying the density curve
+using JuJu’s full season statistics in comparison to the final grid approximation:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Compuate the known posterior for 1000 points from 0 to 1:
+known_posterior &amp;lt;- data.frame(p_density = dbeta(seq(0, 1, length.out = 1000),
+                             # Add receptions to prior alpha
+                             juju_games$total_receptions[nrow(juju_games)] + alpha0,
+                             # Add incompletions to prior beta
+                             with(juju_games, 
+                                  (total_targets[nrow(juju_games)] - 
+                                     total_receptions[nrow(juju_games)]) + beta0)),
+           p_grid = seq(0, 1, length.out = 1000)) %&amp;gt;%
+  ggplot(aes(x = p_grid, y = p_density)) +
+  geom_line(color = &amp;quot;darkorange&amp;quot;) +
+  # Label!
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Posterior density&amp;quot;,
+       title = &amp;quot;Known posterior distribution using beta prior&amp;quot;) +
+  # Clean it up:
+  theme_bw() + theme(axis.text = element_text(size = 10), 
+                     title = element_text(size = 10)) 
+
+
+grid_posterior &amp;lt;- new_game_posteriors %&amp;gt;%
+  select(game_13) %&amp;gt;%
+  bind_cols(data.frame(p_grid = p_grid)) %&amp;gt;%
+  ggplot(aes(x = p_grid, y = game_13)) + 
+  geom_point(size = 2, color = &amp;quot;darkblue&amp;quot;) + 
+  geom_line(color = &amp;quot;darkblue&amp;quot;) +
+  # Label!
+  labs(x = &amp;quot;Catch rate&amp;quot;, y = &amp;quot;Posterior probability&amp;quot;,
+       title = &amp;quot;Grid approximation&amp;quot;) +
+  # Clean it up:
+  theme_bw() + theme(axis.text = element_text(size = 10), 
+                     title = element_text(size = 10)) 
+
+# Install cowplot if you don&amp;#39;t have it!
+# install.packages(&amp;quot;cowplot&amp;quot;)
+cowplot::plot_grid(known_posterior, grid_posterior)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;768&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We see that our grid approximation with twenty points does a pretty good job
+of capturing the posterior distribution, and if we keep increasing the number
+of points in the grid it would follow this posterior exactly. While this is
+simple and incredibly easy for this example, when you are fitting a multilevel
+model with many parameters this just isn’t practical. Hence the need for more
+efficient approaches like quadratic approximation or MCMC. But it’s a great way
+to learn how Bayesian updating works.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-steps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;The basic mechanics of Bayesian inference are intuitive and I hope this first
+post keeps you interested in learning more. We’re estimating full posterior
+distributions for our values of interest, not just point estimates. This means
+we’re always acknowledging the uncertainty in our values, something that is
+often ignored in sports statistics in particular. Obviously, this catch rate
+example is too simplistic - we’re ignoring who is throwing the ball, the
+opposing defense, game situation, and also are not distinguishing dropped
+balls from bad throws&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. We’ll keep working with this example as we move towards
+a full Bayesian multilevel model to account for what we can (Roger Goodell doesn’t
+like to share data). You can take the exact same approach in this example for
+any binary outcome: catch/drop, win/lose, success/failure. Someone could easily
+take this code above and update their belief regarding a running back’s
+Success Rate (% rushes with positive expected points added) as the season
+progresses using &lt;a href=&#34;https://github.com/maksimhorowitz/nflscrapR&#34;&gt;&lt;code&gt;nflscrapR&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next post in this series will either be about sampling from the posterior or
+quadratic approximation and Bayesian regression. We’ll get to the fun stuff
+like MCMC and multilevel models eventually, but it’s better to build our
+understanding first.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://media0.giphy.com/media/NAe117ka9jAdi/giphy-downsized.gif?cid=e1bb72ff5b078134556f746f63a8cf95&#34; alt=&#34;Remember, baby steps!&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Remember, baby steps!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Richard McElreath’s &lt;a href=&#34;https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/1482253445&#34;&gt;Statistical Rethinking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;David Robinson’s &lt;a href=&#34;http://varianceexplained.org/r/empirical_bayes_baseball/&#34;&gt;blog posts on Empirical Bayes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;My first exposure to multilevel models was reading Jonathan Judge’s excellent work at Baseball Prospectus &lt;a href=&#34;https://www.baseballprospectus.com/news/article/25514/moving-beyond-wowy-a-mixed-approach-to-measuring-catcher-framing/&#34;&gt;about their catcher framing model&lt;/a&gt;.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;“Analytical” is just a fancy way to say it follows from &lt;em&gt;real&lt;/em&gt; math with proofs.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;If only there was some technology to track ball location relative to the receiver and account for this distance in a catch probability model… oh wait, there is…&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshops on Ron Yurko</title>
+    <link>http://www.stat.cmu.edu/~ryurko/workshops/</link>
+    <description>Recent content in Workshops on Ron Yurko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Ron Yurko</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/~ryurko/workshops/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Carnegie Mellon Baseball Analytics Workshop</title>
+      <link>http://www.stat.cmu.edu/~ryurko/workshops/baseball/</link>
+      <pubDate>Fri, 06 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/workshops/baseball/</guid>
+      <description>
+
+&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;
+
+&lt;p&gt;Hosted by the &lt;a href=&#34;http://www.stat.cmu.edu/&#34; target=&#34;_blank&#34;&gt;CMU Statistics &amp;amp; Data Science Department&lt;/a&gt; and &lt;a href=&#34;https://www.cmusportsanalytics.com/&#34; target=&#34;_blank&#34;&gt;Carnegie Mellon Sports Analytics Club&lt;/a&gt;, the &lt;a href=&#34;https://cmusportsanalytics.com/workshop.html&#34; target=&#34;_blank&#34;&gt;Carnegie Mellon University Baseball Analytics Workshop&lt;/a&gt; is an interactive workshop focusing on data exploration skills with baseball data!&lt;/p&gt;
+
+&lt;h1 id=&#34;intro-to-exploring-baseball-data-with-r&#34;&gt;Intro to Exploring Baseball Data with R&lt;/h1&gt;
+
+&lt;p&gt;The starter code script for the first of the workshop, using &lt;code&gt;dplyr&lt;/code&gt; and &lt;code&gt;ggplot2&lt;/code&gt; to explore historical baseball data from the &lt;code&gt;Lahman&lt;/code&gt; package is available &lt;a href=&#34;https://raw.githubusercontent.com/ryurko/Carnegie-Mellon-Baseball-Analytics-Workshop/master/introduction_to_r_baseball.R&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;pitchf-x-and-statcast-resources&#34;&gt;PITCHf/x and Statcast Resources&lt;/h1&gt;
+
+&lt;p&gt;The starter code script for the second half of the workshop, dedicated to using PITCHf/x and Statcast data for creating a game plan for the Pirates against the Reds, is available &lt;a href=&#34;https://raw.githubusercontent.com/ryurko/Carnegie-Mellon-Baseball-Analytics-Workshop/master/game_plan_code.R&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additional resources that will be useful for working with this data include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastballs.wordpress.com/2007/08/02/glossary-of-the-gameday-pitch-fields/&#34; target=&#34;_blank&#34;&gt;PITCHf/x&lt;/a&gt; and &lt;a href=&#34;https://www.fangraphs.com/tht/research-notebook-new-format-for-statcast-data-export-at-baseball-savant/&#34; target=&#34;_blank&#34;&gt;Statcast&lt;/a&gt; glossary&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.fangraphs.com/library/pitch-type-abbreviations-classifications/&#34; target=&#34;_blank&#34;&gt;Pitch type information&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://baseballwithr.wordpress.com/&#34; target=&#34;_blank&#34;&gt;Jim Albert&amp;rsquo;s blog: Exploring Baseball Data with R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://billpetti.github.io/baseballr/&#34; target=&#34;_blank&#34;&gt;Bill Petti&amp;rsquo;s &lt;code&gt;baseballr&lt;/code&gt; package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pitchrx.cpsievert.me/&#34; target=&#34;_blank&#34;&gt;Carson Sievert&amp;rsquo;s &lt;code&gt;pitchRx&lt;/code&gt; package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The repository for all of the workshop&amp;rsquo;s material is located &lt;a href=&#34;https://ryurko.github.io/Carnegie-Mellon-Baseball-Analytics-Workshop/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;All PITCHf/x and Statcast data, made available by &lt;a href=&#34;https://baseballsavant.mlb.com/&#34; target=&#34;_blank&#34;&gt;MLBAM&lt;/a&gt;, was accessed using the &lt;code&gt;baseballr&lt;/code&gt; package.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

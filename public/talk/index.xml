@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Ron Yurko</title>
+    <link>http://www.stat.cmu.edu/~ryurko/talk/</link>
+    <description>Recent content in Talks on Ron Yurko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Ron Yurko</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/~ryurko/talk/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Case Study in Reproducibility: Detecting Data Analysis Patterns in Text and Graphs to Characterize Student Workflows</title>
+      <link>http://www.stat.cmu.edu/~ryurko/talk/csada/</link>
+      <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/talk/csada/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Variable Selection for Consistent Clustering</title>
+      <link>http://www.stat.cmu.edu/~ryurko/talk/vscc/</link>
+      <pubDate>Thu, 17 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/talk/vscc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nflWAR: A Reproducible Method for Offensive Player Evaluation in Football</title>
+      <link>http://www.stat.cmu.edu/~ryurko/talk/nflwar/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/talk/nflwar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NFL Player Evaluation Using Expected Points Added with nflscrapR</title>
+      <link>http://www.stat.cmu.edu/~ryurko/talk/glsac/</link>
+      <pubDate>Thu, 13 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.stat.cmu.edu/~ryurko/talk/glsac/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.25.1" />
+  <meta name="author" content="Ron Yurko">
+  <meta name="description" content="Statistics PhD Student">
+
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/~ryurko/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.0/css/academicons.min.css" integrity="sha512-GGGNUPDhnG8LEAEDsjqYIQns+Gu8RBs4j5XGlxl7UfRaZBhCCm5jenJkeJL8uPuOXGqgl8/H1gjlWQDRjd3cUQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/~ryurko/css/hugo-academic.css">
+  
+
+  
+
+  <link rel="alternate" href="http://www.stat.cmu.edu/~ryurko/index.xml" type="application/rss+xml" title="Ron Yurko">
+  <link rel="feed" href="http://www.stat.cmu.edu/~ryurko/index.xml" type="application/rss+xml" title="Ron Yurko">
+
+  <link rel="icon" type="image/png" href="/~ryurko/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/~ryurko/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="http://www.stat.cmu.edu/~ryurko/post/bayesian-baby-steps-normal-next-steps/">
+
+  
+
+  <title>Bayesian Baby Steps: Normal Next Steps | Ron Yurko</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/~ryurko/">Ron Yurko</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#about">
+            
+            <span>About</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#talks">
+            
+            <span>Talks</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#software">
+            
+            <span>Software</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#baseballworkshop">
+            
+            <span>Baseball Analytics Workshop</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/~ryurko/pdf/CV.pdf">
+            
+            <span>CV</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Bayesian Baby Steps: Normal Next Steps</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    <time datetime="2018-07-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Jul 4, 2018
+    </time>
+  </span>
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fwww.stat.cmu.edu%2f~ryurko%2fpost%2fbayesian-baby-steps-normal-next-steps%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Bayesian%20Baby%20Steps%3a%20Normal%20Next%20Steps&amp;url=http%3a%2f%2fwww.stat.cmu.edu%2f~ryurko%2fpost%2fbayesian-baby-steps-normal-next-steps%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fwww.stat.cmu.edu%2f~ryurko%2fpost%2fbayesian-baby-steps-normal-next-steps%2f&amp;title=Bayesian%20Baby%20Steps%3a%20Normal%20Next%20Steps"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=http%3a%2f%2fwww.stat.cmu.edu%2f~ryurko%2fpost%2fbayesian-baby-steps-normal-next-steps%2f&amp;title=Bayesian%20Baby%20Steps%3a%20Normal%20Next%20Steps"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Bayesian%20Baby%20Steps%3a%20Normal%20Next%20Steps&amp;body=http%3a%2f%2fwww.stat.cmu.edu%2f~ryurko%2fpost%2fbayesian-baby-steps-normal-next-steps%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <div id="enter-marquis-de-laplace" class="section level2">
+<h2>Enter marquis de Laplace</h2>
+<p><a href="http://www.stat.cmu.edu/~ryurko/post/bayesian-baby-steps-intro/">In my first post on Bayesian data analysis,</a>
+I did a brief overview of how Bayesian updating works using grid approximation
+to arrive at posterior distributions for our parameters of interest, such as a
+wide receiver’s catch rate. While the grid-based approach is simple and easy to
+follow, it’s just not practical. Before we turn to MCMC, in this post we’ll
+cover the popular approach known as Laplace approximation<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, aka quadratic approximation.</p>
+<p>As I said before, in many cases we’re not able to derive the posterior
+distribution so some sort of approximation method is required. The one and only
+<a href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">Pierre-Simon Laplace</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+had the realization you can use a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian (normal) distribution (good old bell curve)</a> for approximating the
+posterior if its roughly symmetric and unimodal. One of the great benefits of
+working with the Gaussian distribution is that you only need two numbers to
+describe it: the mean <span class="math inline">\(\mu\)</span> for the center, and the variance <span class="math inline">\(\sigma^2\)</span> for the
+spread.</p>
+<p>The reason it’s often called quadratic approximation is because we use a
+<em>quadratic</em> function for approximating the logarithm of the posterior density,
+which we’ll denote as <span class="math inline">\(p(\theta |x)\)</span> where <span class="math inline">\(x\)</span> is our observed data and <span class="math inline">\(\theta\)</span>
+represents our parameter(s) of interest. This approximation uses the fact that
+the log of a Gaussian is a parabola - a quadratic function. You simply take a
+<a href="https://en.wikipedia.org/wiki/Taylor_series#Definition">Taylor series expansion</a>
+of the log of the posterior density centered at the posterior mode <span class="math inline">\(\hat{\theta}\)</span>,</p>
+<p><span class="math display">\[
+\text{log}\  p(\theta|x) = \text{log}\  p(\hat{\theta}|x) + \frac{1}{2}(\theta - \hat{\theta})^T \Big[ \frac{d^2}{d\theta^2} \text{log} p(\theta | x) \Big]_{\theta = \hat{\theta}}(\theta - \hat{\theta}) +\  ... 
+\]</span></p>
+<p>Let me break this down. The first thing you might be thinking is, “Wait how do we
+find the posterior mode???” - well it’s actually pretty simple with a standard
+optimization procedure (as you’ll see below). This mode represents the center of
+the Gaussian that we’ll use to approximate the posterior. The posterior mode is also
+referred to by its Latin name<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <em>maximum a-posteriori</em>, denoted by
+<span class="math inline">\(\hat{\theta}_{MAP}\)</span>. The first term in the expansion above is merely a constant,
+but the second term provides us an estimate of the curvature near the posterior’s
+peak and is proportional to the log of a Gaussian density. This provides us with
+the variance of the Gaussian to approximate the posterior as:</p>
+<p><span class="math display">\[
+p(\theta|x) \approx \text{N}\big( \hat{\theta}, [I(\hat{\theta})]^{-1} \big)
+\]</span></p>
+<p>where <span class="math inline">\(I(\hat{\theta})\)</span> is an estimate for <span class="math inline">\(I(\theta)\)</span>, the <em>observed information</em>,</p>
+<p><span class="math display">\[
+I(\theta) = -\frac{d^2}{d\theta^2} \text{log}\  p(\theta|x).
+\]</span></p>
+<p>That’s all we need for this approximation, the posterior mode and the curvature
+of the posterior density and BAM we have the entire posterior distribution. Well
+really an approximation of it - but from asymptotic theory the posterior
+distribution approaches a Gaussian under some conditions. I won’t get into the
+details, so definitely <a href="https://en.wikipedia.org/wiki/Laplace%27s_method">check out more of the theory</a>
+yourself. I also recommend chapter four of the classic <a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a>
+by Gelman et al.</p>
+<p>The excellent blog by Rasmus Bååth also has a <a href="http://www.sumsar.net/blog/2013/11/easy-laplace-approximation/">post on Laplace approximation</a>
+with a binomial example, like the catch rate model in the previous post, showing
+how the approximation using a Gaussian improves with more data despite the fact
+the posterior is actually a beta! I’ll use a different example for the rest of
+this post and demonstrate the usage of quadratic approximation for Bayesian
+linear regression.</p>
+</div>
+<div id="modeling-nfl-score-differential" class="section level2">
+<h2>Modeling NFL score differential</h2>
+<p>Keeping with my theme of working with American football data<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, I’ll demonstrate
+the use of quadratic approximation with a model for an individual team’s
+score differential. The first step is to gather the score differential for each
+team in each season, which can be done using the <a href="https://github.com/maksimhorowitz/nflscrapR"><code>nflscrapR</code></a>
+package. An easier route however is to access the data from my <a href="https://ryurko.github.io/nflscrapR-data/"><code>nflscrapR</code>-data repository</a>. Rather than scavenging
+through those files, in my <a href="https://github.com/ryurko/nflWAR"><code>nflWAR</code> package</a>
+there’s a function called <code>get_season_summary()</code> that takes in a vector of years
+and returns a data frame with rows for each team’s individual season, and has columns
+for their number of wins and total score differential. The code chunk below
+demonstrates how to use gather this data for NFL seasons from 2009 to 2017:</p>
+<pre class="r"><code># Load the tidyverse
+# install.packages(&quot;tidyverse&quot;)
+library(tidyverse)
+
+# Use the nflWAR package to get summaries of team performances for each season,
+# first install devtools if you don&#39;t have then install nflWAR:
+# install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;ryurko/nflWAR&quot;)
+library(nflWAR)
+
+# Use the get_season_summary() function to create a dataset that has a row
+# for team-season with a column for their score differential from 2009 to 2017:
+team_summary_df &lt;- get_season_summary(2009:2017)</code></pre>
+<p>Before going into the regression example with a predictor, it’s worthwhile to
+first demonstrate quadratic approximation by just modeling the score differential
+with a Gaussian. First step is to visualize the score differential distribution:</p>
+<pre class="r"><code># Visualize the distribution with the points colored by year:
+ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
+  geom_histogram(aes(y = ..density..), bins = 20) + theme_bw() + 
+  scale_x_continuous(limits = c(-300, 300)) +
+  labs(x = &quot;Score differential&quot;, y = &quot;Count&quot;,
+       title = &quot;Distribution of individual team score differential in each season from 2009-17 &quot;,
+       caption = &quot;Data accessed with nflscrapR&quot;) +
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14))</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>From this histogram we have support for using a Gaussian, since it’s roughly
+symmetric and unimodal. Also, since an observed <em>season</em> score differential is the
+sum of the score differentials in <em>each game</em>, we can think of these values as
+following a random walk. Some teams will have large positive differentials, which
+means some team will have large negative differentials. I won’t go into the details
+but theoretically this process of summing together random values, assumed to be
+generated from the same distribution, <a href="https://arxiv.org/pdf/0906.3507.pdf">will follow a Gaussian distribution</a>.
+In other words - the Gaussian distribution is a reasonable choice here.</p>
+<p>We assume then that the general model for an observed score differential <span class="math inline">\(S_i\)</span>,
+where <span class="math inline">\(i = 1,...,\)</span> 288 is the index for an observed
+team-season score differential, follows a Gaussian distribution:</p>
+<p><span class="math display">\[
+S_i \sim \text{N}(\mu, \sigma^2)
+\]</span></p>
+<p>Because we’re approaching this problem from a Bayesian perspective, we really
+want to consider an infinite number of possible Guassians based on all of the
+possible combinations for our parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. Of course we’re
+not going to actually look at every possible value for these parameters,
+laplace approximation will accomplish what we need. But, as I pointed out in the
+previous post, we’re interested in the entire posterior distribution - which in this case
+is a posterior distribution <em>of distributions</em>. So for a full model of score
+differential, we need priors for both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>:</p>
+<p><span class="math display">\[
+S_i \sim \text{N}(\mu, \sigma^2) \\
+\mu \sim \text{N}(0, 100^2) \\
+\sigma \sim \text{Uniform}(0,200)
+\]</span></p>
+<p>This is a really naive model, just to demonstrate Laplace approximation. Next
+we’ll implement the same code in the <a href="http://www.sumsar.net/blog/2013/11/easy-laplace-approximation/">Bååth blog post</a>
+which uses the <code>optim</code> function in <code>R</code> to find the mode of the posterior and
+also returns the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a>
+for the curvature (following the observed information definition above.
+For ease, we’ll roughly follow his example code which also uses
+the <a href="https://cran.r-project.org/web/packages/mvtnorm/index.html"><code>mvtnorm</code></a>
+packages for sampling from the approximated posterior (this sampling isn’t
+really necessary but it’s good practice to start sampling from the posterior).
+We’re working with two parameters here, so the resulting posterior approximation
+is a multivariate Gaussian, hence why we use the <code>rmvnorm()</code> function since we’re
+not only working with each parameter’s mean and variance, but their covariance
+as well (in this example the covariance is essentially 0 but that
+won’t typically be the case).</p>
+<pre class="r"><code># install.packages(&quot;mvtnorm&quot;)
+
+#&#39; Function to perform simple Laplace approximation
+#&#39; @param log_posterior_n Function that returns the log posterior given a vector
+#&#39; of parameter values and observed data.
+#&#39; @param init_points Vector of starting values for parameters.
+#&#39; @param n_samples Number of samples to draw from resulting approximated 
+#&#39; posterior distribution for then visualizing.
+#&#39; @param ... Any additional arguments passed to the log_posterior_fun during 
+#&#39; the optimization.
+#&#39; @return Samples from approximated posterior distribution.
+laplace_approx &lt;- function(log_posterior_fn, init_points, n_samples, ...) {
+  
+  # Use the optim function with the input starting points and function to
+  # evaluate the log posterior to find the mode and curvature with hessian = TRUE
+  # (note that using fnscale = -1 means to maximize). We use the ... here to 
+  # allow for flexible name of the data in log_posterior_fn:
+  fit &lt;- optim(init_points, log_posterior_fn, 
+               # Use the same quasi-Newton optimization method as McElreath&#39;s
+               # map function in his rethinking package:
+               method = &quot;BFGS&quot;,
+               # using fnscale = -1 means to maximize
+               control = list(fnscale = -1), 
+               # need the hessian for the curvature
+               hessian = TRUE, 
+               # additional arguments for the function we&#39;re optimizing
+               ...)
+  
+  # Store the mean values for the parameters and curvature to then generate
+  # samples from the approximated normal posterior given the number of samples
+  # for both of the parameters, returning as a data frame:
+  param_mean &lt;- fit$par
+  # inverse of the negative hessian for the covariance - same as the use 
+  # of the observed information in the intro
+  param_cov_mat &lt;- solve(-fit$hessian)
+  # sample from the resulting joint posterior to get posterior distributions
+  # for each parameter:
+  mvtnorm::rmvnorm(n_samples, param_mean, param_cov_mat) %&gt;%
+    data.frame()
+}
+
+#&#39; Function to calculate log posterior for simple score differential model
+#&#39; @param params Vector of parameter values that are named &quot;mu&quot; and &quot;sigma&quot;.
+#&#39; @param score_diff_values Vector of observed score differential values
+score_diff_model &lt;- function(params, score_diff_values) {
+  
+  # Log likelihood:
+  sum(dnorm(score_diff_values, params[&quot;mu&quot;], params[&quot;sigma&quot;], log = TRUE)) +
+    # plus the log priors results in log posterior:
+    dnorm(params[&quot;mu&quot;], 0, 100, log = TRUE) + 
+    dunif(params[&quot;sigma&quot;], 0, 200, log = TRUE)
+
+}</code></pre>
+<p>With these functions we’ll now approximate the posterior, considering very naive
+starting values for our optimization with <span class="math inline">\(\mu = 200\)</span> and <span class="math inline">\(\sigma = 10\)</span> (this is
+just to demonstrate, I have no reason for choosing these values).</p>
+<pre class="r"><code>init_samples &lt;- laplace_approx(log_posterior_fn = score_diff_model,
+                               init_points = c(mu = 200, sigma = 10),
+                               n_samples = 10000,
+                               # Specify the data for the optimization!
+                               score_diff_values = team_summary_df$Total_Score_Diff)</code></pre>
+<p>We can easily view the joint distribution of our posterior samples with their
+respective marginals on the side (<a href="https://twitter.com/ClausWilke/status/900776341494276096/photo/1?ref_src=twsrc%5Etfw&amp;ref_url=http%3A%2F%2Flreding.com%2Fnonstandard_deviations%2F2017%2F08%2F19%2Fcowmarg%2F">code courtesy of Claus Wilke using <code>cowplot</code></a>):</p>
+<pre class="r"><code># install.packages(&quot;cowplot&quot;)
+library(cowplot)
+
+# First the joint distribution plot with points for the values:
+joint_plot &lt;- ggplot(init_samples, aes(x = mu, y = sigma)) + 
+  geom_point(alpha = .3, color = &quot;darkblue&quot;)  +
+  labs(title = &quot;Posterior distribution for model parameters with marginals&quot;) +
+  theme_bw() +
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 16))
+
+# Marginal density for mu along x-axis using the cowplot function axis_canvas:
+mu_dens &lt;- axis_canvas(joint_plot, axis = &quot;x&quot;) +
+  geom_density(data = init_samples, aes(x = mu), fill = &quot;darkblue&quot;,
+               alpha = 0.5, size = .2)
+
+# Same thing for sigma but along y and with coord_flip = TRUE to make it vertical:
+sigma_dens &lt;- axis_canvas(joint_plot, axis = &quot;y&quot;, coord_flip = TRUE) +
+  geom_density(data = init_samples, aes(x = sigma), fill = &quot;darkblue&quot;,
+               alpha = 0.5, size = .2) +
+  coord_flip()
+
+# Now generate by adding these objects to the main plot:
+# Need grid:
+# install.packages(&quot;grid&quot;)
+joint_plot_1 &lt;- insert_xaxis_grob(joint_plot, mu_dens, 
+                                  grid::unit(.2, &quot;null&quot;), position = &quot;top&quot;)
+joint_plot_2 &lt;- insert_yaxis_grob(joint_plot_1, sigma_dens, 
+                                  grid::unit(.2, &quot;null&quot;), position = &quot;right&quot;)
+ggdraw(joint_plot_2)</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-5-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>From this we can clearly see the Gaussian approximations for both of our
+parameters with the distribution of <span class="math inline">\(\mu\)</span> centered around 0 and the distribution
+for <span class="math inline">\(\sigma\)</span> centered around 100. Remember this represents the distributions
+for the parameters of our score differential model. So sampling from this posterior
+means we are generating different Gaussian distributions for the score differential.
+My next post will focus on sampling from the posterior, but to give you a taste
+of what I mean the code below uses these 10000 values from <code>init_samples</code> for
+each parameter, and then samples 10000 values from distributions using these
+combinations of values to give us our approximate score differential distribution.</p>
+<pre class="r"><code># R is vectorized so can just give it the vector of values for the Gaussian
+# distribution parameters to create the simulated score-diff distribution:
+sim_score_diff_data &lt;- data.frame(Total_Score_Diff = 
+                                    rnorm(10000, mean = init_samples$mu,
+                                          sd = init_samples$sigma))
+
+# Now generate the histogram from before but now add this simulated density
+# on top:
+ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
+  # Specifying y = ..density.. uses density instead of counts
+  geom_histogram(aes(y = ..density..), bins = 20) + 
+  # Add the density curve
+  geom_density(data = sim_score_diff_data, 
+               aes(x = Total_Score_Diff), fill = NA, color = &quot;darkblue&quot;) +
+  scale_x_continuous(limits = c(-300, 300)) +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14)) +
+  labs(x = &quot;Score differential&quot;, y = &quot;Count&quot;,
+       title = &quot;Distribution of individual team score differential in each season from 2009-17 &quot;,
+       caption = &quot;Data accessed with nflscrapR&quot;)</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-6-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>Not bad, but then again this was a pretty easy example. You could also
+use the grid approximation from the last post to accomplish the same task but
+it starts to be annoying to work with even with just two parameters, quickly
+becoming unbearable with more and more parameters.</p>
+</div>
+<div id="how-to-win-in-the-nfl" class="section level2">
+<h2>How to win in the NFL</h2>
+<div class="figure">
+<img src="https://media2.giphy.com/media/FESGhqDEWHAL6/giphy-downsized.gif?cid=e1bb72ff5b3baa416a2f74554d78d0fe" alt="Step 1: avoid this man" />
+<p class="caption">Step 1: avoid this man</p>
+</div>
+<p>Ok, so we’ve seen how easy it is to use Laplace approximation for modeling
+score differential… but that didn’t tell us anything interesting. What we’re
+really interested in, is the relationship between some predictor variable(s) and
+a team’s score differential. For instance, how is a team’s passing performance
+related to their score differential? What about their pass defense? Is this more
+or less related to score differential than rushing?</p>
+<p>In order to address these questions, I’m going to define two statistics to
+summarise each team’s performance in a season. These statistics will be entirely
+based on a team’s expected points added (<span class="math inline">\(EPA\)</span>). If you’re not familiar with <span class="math inline">\(EPA\)</span>,
+it’s built on the fundamental principle in football that not all yards are created
+equal. A 3 yard rush on 3rd down with 2 yards to go, is a lot more valuable than
+a 3 yard rush on 3rd down with 15 yards to go. I’m not going to do a full dive
+on how to calculate <a href="https://www.cmusportsanalytics.com/nfl-expected-points-nflscrapr-part-1-introduction-expected-points/">expected points or its history in this post</a>,
+but it gives us a number describing how many points a team is expected to score
+given their current situation. <span class="math inline">\(EPA\)</span> is merely the change in this expected points
+state between two plays. It was recently popularized by <a href="http://www.advancedfootballanalytics.com/index.php/home/stats/stats-explained/expected-points-and-epa-explained">Brian Burke</a>,
+and in <a href="https://github.com/maksimhorowitz/nflscrapR"><code>nflscrapR</code></a> we use a
+multinomial logistic regression model to provide probabilities for each of the
+possible scoring events resulting in freely available <span class="math inline">\(EPA\)</span> values for every
+play, <a href="https://arxiv.org/abs/1802.00998">full model details available here</a>.</p>
+<p>For each combination of team, <span class="math inline">\(t\)</span>, and season, <span class="math inline">\(y\)</span>, we’ll calculate both its
+total offensive <span class="math inline">\(EPA\)</span> from passing and rushing as <span class="math inline">\(EPA^{pass}_{off, t, y}\)</span> and
+<span class="math inline">\(EPA^{rush}_{off, t, y}\)</span> respectively. As well as it’s defensive statistics
+representing the expected points <strong>allowed</strong>, <span class="math inline">\(EPA^{pass}_{def, t, y}\)</span> and
+<span class="math inline">\(EPA^{rush}_{def, t, y}\)</span>. We’ll capture the efficiency of their performances
+by dividing these totals each by their respective number of attempts, which we’ll
+denote as <span class="math inline">\(Att^{rush}_{off, t,y}\)</span>, <span class="math inline">\(Att^{rush}_{def, t,y}\)</span>, <span class="math inline">\(Att^{pass}_{off, t,y}\)</span>,
+and <span class="math inline">\(Att^{pass}_{def, t,y}\)</span>. Finally, we’ll summarise their overall performances
+with differentials between their offensive and defensive efficiency stats for
+both passing and rushing:</p>
+<p><span class="math display">\[
+EPA\  diff^{pass}_{t,y} = \frac{EPA^{pass}_{off, t, y}}{Att^{pass}_{off, t,y}} - \frac{EPA^{pass}_{def, t, y}}{Att^{pass}_{def, t,y}}\\ 
+EPA\  diff^{rush}_{t,y} = \frac{EPA^{rush}_{off, t, y}}{Att^{rush}_{off, t,y}} - \frac{EPA^{rush}_{def, t, y}}{Att^{rush}_{def, t,y}}\\
+\]</span></p>
+<p>These two stats tell us effectively tell us how much more efficient a team’s
+passing (rushing) offense was compared to their opponents. We’re then going to
+look at the relationship between score differential and each of these efficiency
+differentials separately for simplicity to give us a sense of knowing which
+is more related to their overall performance as captured by score differential.
+First let’s get this data and join it to our <code>team_summary_df</code> above by grabbing
+and selecting the columns from my <a href="https://ryurko.github.io/nflscrapR-data/"><code>nflscrapR</code>-data repository</a>:</p>
+<pre class="r"><code># Load in the four datasets summarising team performance for passing and rushing
+# both from offensive and defensive perspectives, selecting only the necessary
+# columns and renaming them:
+
+team_passing_off &lt;- read_csv(&quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/data/season_team_stats/team_season_passing_df.csv&quot;) %&gt;%
+  dplyr::select(Season, Team, EPA_per_Att) %&gt;%
+  rename(pass_epa_att_off = EPA_per_Att) %&gt;%
+  filter(!is.na(Team))
+
+team_passing_def &lt;- read_csv(&quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/data/season_team_stats/team_def_season_passing_df.csv&quot;) %&gt;%
+  dplyr::select(Season, Team, EPA_per_Att) %&gt;%
+  rename(pass_epa_att_def = EPA_per_Att) %&gt;%
+  filter(!is.na(Team))
+
+team_rushing_off &lt;- read_csv(&quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/data/season_team_stats/team_season_rushing_df.csv&quot;) %&gt;%
+  dplyr::select(Season, Team, EPA_per_Car) %&gt;%
+  rename(rush_epa_att_off = EPA_per_Car) %&gt;%
+  filter(!is.na(Team))
+
+team_rushing_def &lt;- read_csv(&quot;https://raw.githubusercontent.com/ryurko/nflscrapR-data/master/data/season_team_stats/team_def_season_rushing_df.csv&quot;) %&gt;%
+  dplyr::select(Season, Team, EPA_per_Car) %&gt;%
+  rename(rush_epa_att_def = EPA_per_Car) %&gt;%
+  filter(!is.na(Team))
+
+# Join the data to the team_summary_df and calculate the differential columns:
+
+team_summary_df &lt;- team_summary_df %&gt;%
+  inner_join(team_passing_off, by = c(&quot;Team&quot;, &quot;Season&quot;)) %&gt;%
+  inner_join(team_passing_def, by = c(&quot;Team&quot;, &quot;Season&quot;)) %&gt;%
+  inner_join(team_rushing_off, by = c(&quot;Team&quot;, &quot;Season&quot;)) %&gt;%
+  inner_join(team_rushing_def, by = c(&quot;Team&quot;, &quot;Season&quot;)) %&gt;%
+  mutate(pass_epa_diff = pass_epa_att_off - pass_epa_att_def,
+         rush_epa_diff = rush_epa_att_off - rush_epa_att_def)</code></pre>
+<p>Next, let’s look at the relationship between each of these efficiency differentials
+with the team’s score differential visually along with simple linear regression
+fits (just for assistance, we’re going into Bayesian linear regression anyway):</p>
+<pre class="r"><code>epa_pass_plot &lt;- ggplot(team_summary_df,
+                        aes(x = pass_epa_diff, y = Total_Score_Diff)) +
+  geom_point(alpha = 0.5, color = &quot;darkblue&quot;) +
+  geom_smooth(method = &quot;lm&quot;, se = TRUE) +
+  labs(x = &quot;Passing EPA/Attempt differential&quot;,
+       y = &quot;Regular season score differential&quot;,
+       title = &quot;Relationship between score differential\nand passing efficiency differential&quot;) +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 13))
+
+epa_rush_plot &lt;- ggplot(team_summary_df,
+                        aes(x = rush_epa_diff, y = Total_Score_Diff)) +
+  geom_point(alpha = 0.5, color = &quot;darkblue&quot;) +
+  geom_smooth(method = &quot;lm&quot;, se = TRUE) +
+  labs(x = &quot;Rushing EPA/Attempt differential&quot;,
+       y = &quot;Regular season score differential&quot;,
+       title = &quot;Relationship between score differential\n and rushing efficiency differential&quot;) +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 13))
+
+plot_grid(epa_pass_plot, epa_rush_plot, rel_widths = c(1, 1))</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-8-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Ok, I’d say it’s pretty obvious that the passing efficiency differential has
+a strong positive relationship with score differential. The rushing differential
+also displays a positive relationship, but not quite as strong. We can also
+of course view the relationship between these variables (or lack thereof), and
+color the points by the team’s regular season score differential to give us an
+idea of how its related to both of these variables. And just because we can,
+we’ll include the marginal distributions on the same plot.</p>
+<pre class="r"><code># First generate the scattterplot with the points
+joint_score_plot &lt;- ggplot(team_summary_df,
+       aes(x = pass_epa_diff, y = rush_epa_diff)) +
+  geom_point(aes(color = Total_Score_Diff), alpha = 0.5, size = 4) +
+  labs(x = &quot;Passing EPA/Attempt differential&quot;,
+       y = &quot;Rushing EPA/Attempt differential&quot;,
+       color = &quot;Regular season\nscore differential&quot;,
+       title = &quot;Joint distribution of passing and rushing efficiency differentials\ncolored by regular season score differential&quot;) +
+  scale_color_gradient2(low = &quot;darkorange&quot;, mid = &quot;gray&quot;, high = &quot;darkblue&quot;,
+                        midpoint = 0) +
+  geom_vline(xintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
+  geom_hline(yintercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
+  annotate(&quot;text&quot;, label = &quot;Better pass,\nbetter run&quot;, x = .30, y = .28,
+           size = 5, color = &quot;darkred&quot;) +
+  annotate(&quot;text&quot;, label = &quot;Better pass,\nworse run&quot;, x = .30, y = -.15,
+           size = 5, color = &quot;darkred&quot;) +
+  annotate(&quot;text&quot;, label = &quot;Worse pass,\nbetter run&quot;, x = -.30, y = .28,
+           size = 5, color = &quot;darkred&quot;) +
+  annotate(&quot;text&quot;, label = &quot;Worse pass,\nworse run&quot;, x = -.30, y = -.15,
+           size = 5, color = &quot;darkred&quot;) +
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 16))
+
+
+pass_dens &lt;- axis_canvas(joint_score_plot, axis = &quot;x&quot;) +
+  geom_density(data = team_summary_df, aes(x = pass_epa_diff), 
+               fill = &quot;darkblue&quot;,
+               alpha = 0.5, size = .2)
+
+# Same thing for sigma but along y and with coord_flip = TRUE to make it vertical:
+rush_dens &lt;- axis_canvas(joint_score_plot, axis = &quot;y&quot;, coord_flip = TRUE) +
+  geom_density(data = team_summary_df, aes(x = rush_epa_diff), 
+               fill = &quot;darkblue&quot;,
+               alpha = 0.5, size = .2) +
+  coord_flip()
+
+# Now generate by adding these objects to the main plot:
+joint_score_plot_1 &lt;- insert_xaxis_grob(joint_score_plot, pass_dens, 
+                                  grid::unit(.2, &quot;null&quot;), position = &quot;top&quot;)
+joint_score_plot_2 &lt;- insert_yaxis_grob(joint_score_plot_1, rush_dens, 
+                                  grid::unit(.2, &quot;null&quot;), position = &quot;right&quot;)
+ggdraw(joint_score_plot_2)</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>Now it looks pretty clear that you’re probably going to need a better passing offense
+than your opponent to have a positive score differential. There doesn’t appear
+to be many points on this plot with positive score differential in the top-left
+quadrant, which corresponds to rushing better than your opponents but having an
+inferior passing game. After accounting for the passing efficiency differential,
+maybe a team’s rushing efficiency differential doesn’t matter? Let’s tackle this
+with a Bayesian model.</p>
+<p>Returning to the score differential model, we’re now going use both efficiency
+differentials as predictors. Remember, all we need to fully describe a Gaussian
+distribution is the mean and variance. So in order to incorporate these into
+the our model we’ll define the mean, <span class="math inline">\(\mu\)</span>, as a function of both predictors
+explicitly. For simplicity we’ll return to using <span class="math inline">\(i\)</span> to denote a single combination
+of team <span class="math inline">\(t\)</span> and season <span class="math inline">\(y\)</span> for the 286 team-season combinations
+that we have, and we’ll also let <span class="math inline">\(P_i = EPA\  diff^{pass}_{t,y}\)</span> and
+<span class="math inline">\(R_i = EPA\  diff^{rush}_{t,y}\)</span> be simpler representations for our differentials:</p>
+<p><span class="math display">\[
+S_i \sim \text{N}(\mu_i, \sigma^2) \\
+\mu_i = \alpha + \beta_{P}P_i + \beta_R R_i \\
+\alpha \sim \text{N}(0, 100^2) \\
+\beta_P \sim \text{N}(0, 100^2) \\
+\beta_R \sim \text{N}(0, 100^2) \\
+\sigma \sim \text{Uniform}(0,200)
+\]</span></p>
+<p>Now the mean of the score differential distribution <em>depends on the predictors</em>
+as denoted with the subscript <span class="math inline">\(i\)</span>. By denoting the relationship between <span class="math inline">\(\mu_i\)</span>
+and each of the predictors with an <span class="math inline">\(=\)</span> sign, we’re saying that <span class="math inline">\(\mu_i\)</span> is no
+longer a parameter, its just a function of our actual parameters of interest.
+The parameters we really care about here are <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta_P\)</span>, and <span class="math inline">\(\beta_R\)</span>.
+Of course all of this should look familiar if you’ve seen <a href="https://en.wikipedia.org/wiki/Linear_regression">linear regression</a>
+before. The <span class="math inline">\(\alpha\)</span> is our model’s intercept, representing the <em>expected</em> score
+differential for when both the passing and rushing efficiency differentials
+are 0. And each of the <span class="math inline">\(\beta\)</span>s represent the change in <em>expected</em> score
+differential when the pass/rush efficiency differential increases by 1 unit, after
+accounting for the other type of efficiency differential (rush/pass). So each of
+these are given priors (along with <span class="math inline">\(\sigma\)</span> again), and we don’t need to specify
+a prior for <span class="math inline">\(\mu_i\)</span> since it is explained completely by these parameters. These
+priors for now are pretty weak, but both <span class="math inline">\(\beta\)</span> priors centered at 0 are just
+saying, “I don’t know if there’s a relationship between these effiency
+differentials and score differential, good or bad are equally likely”.</p>
+<p>To actually approximate this model, we’ll use that same <code>laplace_approx()</code> function
+from before - but this time define a new function for calculating the log posterior
+for this regression model:</p>
+<pre class="r"><code>#&#39; Function to calculate log posterior for score differential model regression
+#&#39; model that also takes in the prior inputs for the regression parameters.
+#&#39; @param reg_params Vector of parameter values that are named &quot;alpha&quot;, 
+#&#39; &quot;beta_p&quot;, &quot;beta_r&quot;, and &quot;sigma&quot;.
+#&#39; @param hyperparams List of hyperparameter values that are named &quot;alpha_mu&quot;,
+#&#39; &quot;alpha_sd&quot;, &quot;beta_p_mu&quot;, &quot;beta_p_sd&quot;, &quot;beta_r_mu&quot;, &quot;beta_p_sd&quot;, &quot;sigma_a&quot;,
+#&#39; and &quot;sigma_b&quot;.
+#&#39; @param score_diff_values Vector of observed score differential values.
+#&#39; @param pass_eff_values Vector of pass efficiency differential values.
+#&#39; @param rush_eff_values Vector of rush efficiency differential values.
+
+score_diff_reg_eff_model &lt;- function(reg_params, hyperparams, 
+                                        score_diff_values, pass_eff_values,
+                                        rush_eff_values) {
+  # Log likelihood that now uses the function form for mu using the two
+  # predictors and their respective values:
+  sum(dnorm(score_diff_values, 
+            reg_params[&quot;alpha&quot;] + 
+              reg_params[&quot;beta_p&quot;]*pass_eff_values +
+              reg_params[&quot;beta_r&quot;]*rush_eff_values, 
+            reg_params[&quot;sigma&quot;], log = TRUE)) +
+    # plus the log priors for each parameter results in log posterior:
+    dnorm(reg_params[&quot;alpha&quot;], 
+          hyperparams$alpha_mu, hyperparams$alpha_sd, log = TRUE) + 
+    dnorm(reg_params[&quot;beta_p&quot;], 
+          hyperparams$beta_p_mu, hyperparams$beta_p_sd, log = TRUE) + 
+    dnorm(reg_params[&quot;beta_r&quot;], 
+          hyperparams$beta_r_mu, hyperparams$beta_r_sd, log = TRUE) + 
+    dunif(reg_params[&quot;sigma&quot;], hyperparams$sigma_a, 
+          hyperparams$sigma_b, log = TRUE)
+
+}</code></pre>
+<p>Now we’ll just optimize this function in the same way as before, using the
+hyperparameters in the model outlined above, and generate 10000 samples from the
+resulting multivariate Gaussian posterior distribution:</p>
+<pre class="r"><code>init_reg_samples &lt;- laplace_approx(log_posterior_fn = score_diff_reg_eff_model,
+                               init_points = c(alpha = 0, beta_p = 0, 
+                                               beta_r = 0, sigma = 10),
+                               n_samples = 10000,
+                               # Vector of hyperparameters:
+                               hyperparams = list(alpha_mu = 0, alpha_sd = 100,
+                                                beta_p_mu = 0, beta_p_sd = 100,
+                                                beta_r_mu = 0, beta_r_sd = 100,
+                                                sigma_a = 0, sigma_b = 200),
+                               # Specify the data for the optimization!
+                               score_diff_values = team_summary_df$Total_Score_Diff,
+                               pass_eff_values = team_summary_df$pass_epa_diff,
+                               rush_eff_values = team_summary_df$rush_epa_diff)</code></pre>
+<p>Now let’s view the distributions for each <span class="math inline">\(\beta\)</span> using another
+one of <a href="https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html">Claus Wilke’s packages <code>ggridges</code></a>:</p>
+<pre class="r"><code># We&#39;ll use the latex2exp package here:
+# install.packages(&quot;latex2exp&quot;)
+library(latex2exp)
+# and ggridges:
+# install.packages(&quot;ggridges&quot;) 
+library(ggridges)
+
+# First use the gather function to make this simpler to work with:
+init_reg_samples %&gt;%
+  gather(param, value) %&gt;%
+  # only use the beta parameters:
+  filter(param %in% c(&quot;beta_p&quot;, &quot;beta_r&quot;)) %&gt;%
+  # visualize the distributions for each with density curves:
+  ggplot(aes(x = value, y = param)) +
+  geom_density_ridges(alpha = 0.7, fill = &quot;darkblue&quot;,
+                      # add the rugs underneath as well:
+                      jittered_points = TRUE,
+                      position = position_points_jitter(width = 0.05, height = 0),
+                      point_shape = &#39;|&#39;, point_size = 3, point_color = &quot;darkblue&quot;,
+                      point_alpha = 0.7) +
+  # properly label and also change the y axis spacing so the Passing density
+  # is along the bottom of the axis
+  scale_y_discrete(labels = c(&quot;Passing&quot;, &quot;Rushing&quot;), expand = c(0.01, 0.01)) +
+  # label using the latex symbols:
+  labs(x = TeX(&quot;$\\beta$ value&quot;),
+       y = TeX(&quot;$\\beta$ parameter&quot;),
+       title = TeX(&quot;Sampled posterior distributions for $\\beta_P$ and $\\beta_R$&quot;)) +
+  # theme settings:
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14))</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>From this we can clearly see that both passing and rushing efficiency differentials
+have positive relationships with score differential, even while accounting for
+each other. Unlike my initial guess from the previous plot, improving your rushing
+efficiency differential is associated with an increase in your team’s score
+differential even after adjusting for passing - so it’s not entirely useless.
+But we do see that passing has a greater effect, in fact <strong>there’s no overlap
+between the passing and rushing distributions</strong>.
+Now these <span class="math inline">\(\beta\)</span> values are quite large due to the actual values
+for the <span class="math inline">\(EPA/Att\)</span> differentials, with the medians for <span class="math inline">\(\beta_P\)</span> and <span class="math inline">\(\beta_R\)</span> at
+490.448 and
+315.0773 respectively. To make this
+simpler and more realistic from point of view of gaining an advantage: a 0.05
+increase in a team’s passing <span class="math inline">\(EPA/Att\)</span> differential is associated with a
+24.5224 increase in their expected
+score differential (using the posterior distribution median). Meanwhile a 0.05
+increase in a team’s rushing <span class="math inline">\(EPA/Att\)</span> differential is associated with a
+15.7539 increase in their expected
+score differential. So if you’re in a front office and wondering how to allocate
+your resources, improving your pass offense/defense is more worthwhile
+than improving in your run offense/defense.</p>
+</div>
+<div id="but-my-prior-says-run-the-ball" class="section level2">
+<h2>But my prior says run the ball!</h2>
+<p>I completely glossed over the prior distributions in setting up this model.
+The ones I used above are really weak priors, that give you results
+pretty close to just using good old <code>lm()</code> for your standard linear regression.
+Also, the prior I’m using for <span class="math inline">\(\sigma\)</span> is extremely naive, a more appropriate
+choice is to actually model the log(<span class="math inline">\(\sigma\)</span>) instead with a Gaussian prior then
+exponeniate to get strictly positive values - but I’ll let the motivated reader
+adjust this. Instead I’m going to conclude this post with an example of the power
+of prior distributions.</p>
+<p>Let’s pretend you’re an analyst for the Seattle Seahawks. Your team has just
+hired <a href="https://en.wikipedia.org/wiki/Brian_Schottenheimer">Brian Schottenheimer</a>
+to be the offensive coordinator. Brian loves to run the football<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, in fact he tells
+you that from his 20 years of professional coaching experience, he knows that
+the run game is much more important than the passing game. So how do we account
+for his prior knowledge (or to be blunt, his bias)?</p>
+<p>A pretty cool feature from using the Gaussian distribution as a prior is how
+the variance represents the amount of previous data from using <span class="math inline">\(\sigma = \frac{1}{\sqrt{n}}\)</span>.
+Given Brian’s 20 years of professional experience, this equates to using in our
+priors $=  $ 0.2236,
+which is obviously much smaller than the priors from above. We’ll also specify
+the <span class="math inline">\(\mu\)</span> for each of the <span class="math inline">\(\beta\)</span>s to say that rushing has a stronger relationship
+than passing, by just flipping our posterior median values in the example above:</p>
+<p><span class="math display">\[
+S_i \sim \text{N}(\mu_i, \sigma^2) \\
+\mu_i = \alpha + \beta_{P}P_i + \beta_R R_i \\
+\alpha \sim \text{N}(0, 100^2) \\
+\beta_P \sim \text{N}(336, 0.2236^2) \\
+\beta_R \sim \text{N}(492, 0.2236^2) \\
+\sigma \sim \text{Uniform}(0,200)
+\]</span></p>
+<p>Let’s use our functions from before and visualize the new posteriors given
+Brian’s prior beliefs:</p>
+<pre class="r"><code>brian_reg_samples &lt;- laplace_approx(log_posterior_fn = score_diff_reg_eff_model,
+                               init_points = c(alpha = 0, beta_p = 0, 
+                                               beta_r = 0, sigma = 10),
+                               n_samples = 10000,
+                               # Vector of hyperparameters:
+                               hyperparams = list(alpha_mu = 0, alpha_sd = 100,
+                                                beta_p_mu = 336, beta_p_sd = 0.2236,
+                                                beta_r_mu = 492, beta_r_sd = 0.2236,
+                                                sigma_a = 0, sigma_b = 200),
+                               # Specify the data for the optimization!
+                               score_diff_values = team_summary_df$Total_Score_Diff,
+                               pass_eff_values = team_summary_df$pass_epa_diff,
+                               rush_eff_values = team_summary_df$rush_epa_diff)
+
+# First use the gather function to make this simpler to work with:
+brian_reg_samples %&gt;%
+  gather(param, value) %&gt;%
+  # only use the beta parameters:
+  filter(param %in% c(&quot;beta_p&quot;, &quot;beta_r&quot;)) %&gt;%
+  # visualize the distributions for each with density curves:
+  ggplot(aes(x = value, y = param)) +
+  geom_density_ridges(alpha = 0.7, fill = &quot;darkblue&quot;,
+                      # add the rugs underneath as well:
+                      jittered_points = TRUE,
+                      position = position_points_jitter(width = 0.05, height = 0),
+                      point_shape = &#39;|&#39;, point_size = 3, point_color = &quot;darkblue&quot;,
+                      point_alpha = 0.7) +
+  # properly label and also change the y axis spacing so the Passing density
+  # is along the bottom of the axis
+  scale_y_discrete(labels = c(&quot;Passing&quot;, &quot;Rushing&quot;), expand = c(0.01, 0.01)) +
+  # label using the latex symbols:
+  labs(x = TeX(&quot;$\\beta$ value&quot;),
+       y = TeX(&quot;$\\beta$ parameter&quot;),
+       title = TeX(&quot;Sampled posterior distributions for $\\beta_P$ and $\\beta_R$ accounting for Brian&#39;s prior&quot;)) +
+  # theme settings:
+  theme_bw() + 
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14))</code></pre>
+<p><img src="/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>This shouldn’t be a suprise, as those were some very strong priors about the
+relationships for each of these efficiency differentials. Priors play an
+important role in Bayesian data analysis precisely for this reason, they can
+have a major impact on your results (hence why many people prefer to avoid
+working with them). So if you’re that lucky Seahawks analyst that
+gets to show Brian these results, you’ve just reaffirmed his beliefs - you’ll
+need a lot more data to move these posterior distributions away from such strong priors.</p>
+</div>
+<div id="discussion-and-next-steps" class="section level2">
+<h2>Discussion and next steps</h2>
+<p>Laplace approximation is a useful tool that is pretty easy to implement, assuming
+you’ve met the necessary assumptions. You’re not just using the mode found from
+optimization techniques as single estimates, but rather approximating the full
+posterior distribution with a Gaussian. And from this score differential example,
+it’s really easy to implement Bayesian linear regression. From the football
+perspective we’ve seen that the ability to pass the football and prevent others
+from passing is more valuable in terms of score differential than running the ball.
+But strong priors can lead us to basically ignore the data, just confirming to
+someone like Brian Schottenheimer that his personal bias is “correct”. Obviously
+this analysis was pretty simple, and much more work would need to be done for
+really assessing the importance of passing and rushing in the NFL. But even
+with this simple approach, <strong>we can quantify in terms of points how much more
+valuable passing is relative to rushing</strong>.</p>
+<p>The next post in this series is going to focus on sampling from the posterior
+distribution - something I’ve done multiple times but deserves more of deep
+dive on its own before moving into MCMC.</p>
+<p>Let me know if there are any errors in this post/code, all feedback is welcome!</p>
+<div class="figure">
+<img src="https://media2.giphy.com/media/E0RLYXkGjsYqQ/giphy-downsized.gif?cid=e1bb72ff5b3c51776d6e384d5955e0eb" alt="You actually read this whole thing?" />
+<p class="caption">You actually read this whole thing?</p>
+</div>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ul>
+<li>Richard McElreath’s <a href="https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/1482253445">Statistical Rethinking</a>,
+his <a href="https://github.com/rmcelreath/rethinking"><code>rethinking</code> package</a> uses a
+function <code>map()</code>, which is basically a wrapper function for
+the <code>laplace_approx()</code> function we defined above, to carry out Laplace approximation. I’m
+just personally annoyed by the fact it’s <code>map()</code> since that’s the same name as
+one of the most useful functions in the <code>purrr</code> package.</li>
+<li><a href="https://www.amazon.com/Bayesian-Analysis-Chapman-Statistical-Science/dp/1439840954">Bayesian Data Analysis</a>
+by Gelman et al.</li>
+<li>Rasmus Bååth’s <a href="http://www.sumsar.net/blog/2013/11/easy-laplace-approximation/">blog post on Laplace approximation</a></li>
+<li>Jim Albert’s <a href="https://cran.r-project.org/web/packages/LearnBayes/LearnBayes.pdf"><code>LearnBayes</code> package</a>
+also has similar functions for carrying out this approximation.</li>
+</ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>My rocket scientist - turned nuclear engineer - turned self taught Bayesian
+data scientist for a brother loves Laplace approximation.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Ridiculously bad but awesome idea - Lin-Manuel Miranda reads
+Stephen Stigler’s <a href="https://www.amazon.com/History-Statistics-Measurement-Uncertainty-before/dp/067440341X">History of Statistics</a> and creates a Broadway musical with Daveed Diggs as Laplace…<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>I don’t see the point of ever referring to something by its Latin name,
+so I’m going to call it what it is: the posterior mode.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Shameless self promotion for my football data package <a href="https://github.com/ryurko/fcscrapR"><code>fcscrapR</code></a>!<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>I’m sorry <a href="https://twitter.com/benbbaldwin">Ben</a> and <a href="https://twitter.com/SeanFromSeabeck">Sean</a>.<a href="#fnref5" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="http://www.stat.cmu.edu/~ryurko/post/bayesian-baby-steps-intro/"><span
+      aria-hidden="true">&larr;</span> Bayesian Baby Steps: Intro with JuJu</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Ron Yurko &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.2/imagesloaded.pkgd.min.js" integrity="sha512-iHzEu7GbSc705hE2skyH6/AlTpOfBmkx7nUqTLGzPYR+C1tRaItbRlJ7hT/D3YQ9SV0fqLKzp4XY9wKulTBGTw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js" integrity="sha512-Z5heTz36xTemt1TbtbfXtTq5lMfYnOkXM2/eWcTTiLU01+Sw4ku1i7vScDc8fWhrP2abz9GQzgKH5NGBLoYlAw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js" integrity="sha512-CDeU7pRtkPX6XJtF/gcFWlEwyaX7mcAp5sO3VIu/ylsdR74wEw4wmBpD5yYTrmMAiAboi9thyBUr1vXRPA7t0Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/~ryurko/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

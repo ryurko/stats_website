@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1527735668814.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "95760263",
+    "id" : "CF22859",
+    "lastKnownWriteTime" : 1530715410,
+    "last_content_update" : 1530715410807,
+    "path" : "~/Documents/stats_website/content/post/2018-05-30-bayesian-baby-steps-intro-with-juju.Rmd",
+    "project_path" : "content/post/2018-05-30-bayesian-baby-steps-intro-with-juju.Rmd",
+    "properties" : {
+        "cursorPosition" : "316,17",
+        "scrollLine" : "306"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

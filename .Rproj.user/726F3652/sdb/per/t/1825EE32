@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "+++\ndate = \"2017-09-23T00:00:00\"\ntitle = \"nflWAR: A Reproducible Method for Offensive Player Evaluation in Football\"\nabstract = \"Unlike other major professional sports, American football lacks comprehensive statistical ratings for player evaluation that are both reproducible and easily interpretable in terms of game outcomes. Existing methods for player evaluation in football depend heavily on proprietary data, are not reproducible, and lag behind those of other major sports. We present four contributions to the study of football statistics in order to address these issues. First, we develop the R package nflscrapR to provide easy access to publicly available play-by-play data from the National Football League (NFL) dating back to 2009. Second, we introduce a novel multinomial logistic regression approach for estimating the expected points for each play. Third, we use the expected points as input into a generalized additive model for estimating the win probability for each play. Fourth, we introduce our nflWAR framework, using multilevel models to isolate the contributions of individual offensive skill players, and providing estimates for their individual wins above replacement (WAR). We estimate the uncertainty in each player’s WAR through a resampling approach specifically designed for football, and we present these results for the 2017 NFL season. We discuss how our reproducible WAR framework, built entirely on publicly available data, can be easily extended to estimate WAR for players at any position, provided that researchers have access to data specifying which players are on the field during each play. Finally, we discuss the potential implications of this work for NFL teams.\"\nabstract_short = \"\"\nevent = \"New England Symposium on Statistics in Sports\"\nevent_url = \"http://nessis.org/\"\nlocation = \"Harvard University\"\n\nselected = false\nmath = true\n\nurl_pdf = \"pdf/nflWAR_JQAS_public.pdf\"\nurl_slides = \"pdf/NESSIS_nflWAR.pdf\"\nurl_video = \"https://www.youtube.com/watch?v=djD-yL3vWNQ\"\nurl_custom = [{name = \"Pitt talk\", url = \"pdf/nflWAR_pitt_class.pdf\"}]\n\n# Optional featured image (relative to `static/img/` folder).\n[header]\nimage = \"\"\ncaption = \"\"\n\n+++",
+    "created" : 1506725178895.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "817281786",
+    "id" : "1825EE32",
+    "lastKnownWriteTime" : 1519708545,
+    "last_content_update" : 1519708545220,
+    "path" : "~/Documents/stats_website/content/talk/nessis_talk.md",
+    "project_path" : "content/talk/nessis_talk.md",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

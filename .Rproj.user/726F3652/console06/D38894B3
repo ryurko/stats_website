@@ -1,0 +1,30 @@
+]0;~/Documents/stats_website[?1034hRons-MacBook-Pro:stats_website ron$ [KRons-MacBook-Pro:stats_website ron$ git remote add origin https://github.com/ryurko/stats_website.git
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git init
+Initialized empty Git repository in /Users/ron/Documents/stats_website/.git/
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git remote add origin https://github.com/ryurko/stats_website.git
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git push -u origin master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/ryurko/stats_website.git'
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git p[Kcommit
+On branch master
+
+Initial commit
+
+Untracked files:
+	[31m.DS_Store[m
+	[31m.Rhistory[m
+	[31m.Rproj.user/[m
+	[31mconfig.toml[m
+	[31mcontent/[m
+	[31mindex.Rmd[m
+	[31mpublic/[m
+	[31mstatic/[m
+	[31mstats_website.Rproj[m
+	[31mthemes/[m
+
+nothing added to commit but untracked files present
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git add .
