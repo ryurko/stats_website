@@ -49,7 +49,7 @@ catch and D stand for drop. We could carry out this procedure any number of
 times, for instance we could record the following ten pass attempts to our
 receiver:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sample(c(&amp;quot;C&amp;quot;, &amp;quot;D&amp;quot;), size = 10, replace = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can describe the &lt;em&gt;story&lt;/em&gt; for this &lt;em&gt;data generating process&lt;/em&gt; quite easily,
 informing us how to simulate new data. In this case:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;

@@ -28,3 +28,497 @@ nothing added to commit but untracked files present
 Nothing specified, nothing added.
 Maybe you wanted to say 'git add .'?
 ]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git add .
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git add .[Kgit commt[Kit -m "first commit"
+[master (root-commit) a6d6d1b] first commit
+ 480 files changed, 37955 insertions(+)
+ create mode 100644 .DS_Store
+ create mode 100644 .Rhistory
+ create mode 100644 .Rproj.user/726F3652/console06/D38894B3
+ create mode 100644 .Rproj.user/726F3652/console06/D38894B3.env
+ create mode 100644 .Rproj.user/726F3652/console06/INDEX001
+ create mode 100644 .Rproj.user/726F3652/pcs/files-pane.pper
+ create mode 100644 .Rproj.user/726F3652/pcs/packages-pane.pper
+ create mode 100644 .Rproj.user/726F3652/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/726F3652/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/726F3652/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/726F3652/rmd-outputs
+ create mode 100644 .Rproj.user/726F3652/saved_source_markers
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/1825EE32
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/2D2CA440
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/731FA973
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/9D7C302F
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/C3CB2CDB
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/C9FAE5FE
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/D1C1E8F
+ create mode 100644 .Rproj.user/726F3652/sdb/per/t/D4A49ABF
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/1275AE05
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/12C27E62
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/1388BBB1
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/15C7CEA7
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/19736EF7
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/1FB02D0D
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/28EFDD23
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/2972FC9A
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/323374D1
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/402DE386
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/4BD350F
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/4D6B9BE5
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/4DB33145
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/550BE943
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/6C7D7767
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/74F924C7
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/7C13983C
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/8579746C
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/89752AB3
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/9C4C6F7F
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/B1D68469
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/B2304961
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/B5E4CC63
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/C46D9C08
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/C531BD6F
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/C6A91CAF
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/C9A0B714
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/D24F4EA7
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/DFEBF7E5
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/FDC72CE5
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/FEFC2530
+ create mode 100644 .Rproj.user/726F3652/sdb/prop/INDEX
+ create mode 100644 .Rproj.user/726F3652/session-persistent-state
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1275AE05
+ create mode 100644 .Rproj.user/726F3652/sources/prop/12C27E62
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1388BBB1
+ create mode 100644 .Rproj.user/726F3652/sources/prop/15C7CEA7
+ create mode 100644 .Rproj.user/726F3652/sources/prop/19736EF7
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1B7AD002
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1C2EDA5E
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1CC9734A
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1D5C417E
+ create mode 100644 .Rproj.user/726F3652/sources/prop/1FB02D0D
+ create mode 100644 .Rproj.user/726F3652/sources/prop/28EFDD23
+ create mode 100644 .Rproj.user/726F3652/sources/prop/2972FC9A
+ create mode 100644 .Rproj.user/726F3652/sources/prop/323374D1
+ create mode 100644 .Rproj.user/726F3652/sources/prop/402DE386
+ create mode 100644 .Rproj.user/726F3652/sources/prop/4BD350F
+ create mode 100644 .Rproj.user/726F3652/sources/prop/4C797866
+ create mode 100644 .Rproj.user/726F3652/sources/prop/4D6B9BE5
+ create mode 100644 .Rproj.user/726F3652/sources/prop/4DB33145
+ create mode 100644 .Rproj.user/726F3652/sources/prop/53FDA1CA
+ create mode 100644 .Rproj.user/726F3652/sources/prop/550BE943
+ create mode 100644 .Rproj.user/726F3652/sources/prop/5CD2E3B8
+ create mode 100644 .Rproj.user/726F3652/sources/prop/5F552776
+ create mode 100644 .Rproj.user/726F3652/sources/prop/6162E249
+ create mode 100644 .Rproj.user/726F3652/sources/prop/6BA1A469
+ create mode 100644 .Rproj.user/726F3652/sources/prop/6C7D7767
+ create mode 100644 .Rproj.user/726F3652/sources/prop/6CD98048
+ create mode 100644 .Rproj.user/726F3652/sources/prop/70A013EC
+ create mode 100644 .Rproj.user/726F3652/sources/prop/74F924C7
+ create mode 100644 .Rproj.user/726F3652/sources/prop/7C13983C
+ create mode 100644 .Rproj.user/726F3652/sources/prop/7F1FCDCE
+ create mode 100644 .Rproj.user/726F3652/sources/prop/8579746C
+ create mode 100644 .Rproj.user/726F3652/sources/prop/860B4A38
+ create mode 100644 .Rproj.user/726F3652/sources/prop/86E8E2B5
+ create mode 100644 .Rproj.user/726F3652/sources/prop/8948DF54
+ create mode 100644 .Rproj.user/726F3652/sources/prop/89752AB3
+ create mode 100644 .Rproj.user/726F3652/sources/prop/981FA9E6
+ create mode 100644 .Rproj.user/726F3652/sources/prop/9C4C6F7F
+ create mode 100644 .Rproj.user/726F3652/sources/prop/AE303D37
+ create mode 100644 .Rproj.user/726F3652/sources/prop/AF7411B4
+ create mode 100644 .Rproj.user/726F3652/sources/prop/B1D68469
+ create mode 100644 .Rproj.user/726F3652/sources/prop/B2304961
+ create mode 100644 .Rproj.user/726F3652/sources/prop/B3527F79
+ create mode 100644 .Rproj.user/726F3652/sources/prop/B5E4CC63
+ create mode 100644 .Rproj.user/726F3652/sources/prop/B66DC707
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C46D9C08
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C4C34A94
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C531BD6F
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C6A91CAF
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C8233163
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C8350E3A
+ create mode 100644 .Rproj.user/726F3652/sources/prop/C9A0B714
+ create mode 100644 .Rproj.user/726F3652/sources/prop/D24F4EA7
+ create mode 100644 .Rproj.user/726F3652/sources/prop/D3A3EF04
+ create mode 100644 .Rproj.user/726F3652/sources/prop/DD9CCF79
+ create mode 100644 .Rproj.user/726F3652/sources/prop/DFEBF7E5
+ create mode 100644 .Rproj.user/726F3652/sources/prop/E4587D41
+ create mode 100644 .Rproj.user/726F3652/sources/prop/F8A52332
+ create mode 100644 .Rproj.user/726F3652/sources/prop/FAF1CFB7
+ create mode 100644 .Rproj.user/726F3652/sources/prop/FDC72CE5
+ create mode 100644 .Rproj.user/726F3652/sources/prop/FEFC2530
+ create mode 100644 .Rproj.user/726F3652/sources/prop/INDEX
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/2BEBF0E0
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/2BEBF0E0-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/32A652C1
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/32A652C1-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/3EC6B6E6-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/41D42CB4
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/41D42CB4-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/4A2925E8
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/4A2925E8-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/6AF3717
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/6AF3717-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/8C5E273A
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/8C5E273A-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/A3005DF8
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/A3005DF8-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/B980AE70-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/BD5A191E
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/BD5A191E-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/CF22859
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/CF22859-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/CF54E016
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/CF54E016-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/D1C1E8F
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/D1C1E8F-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/DBC55519-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/E37AF4F5
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/E37AF4F5-contents
+ create mode 100644 .Rproj.user/726F3652/sources/s-4B15C832/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/45C1129F-2018-05-30-bayesian-baby-steps-intro-with-juju/1/726F36524B15C832/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/45C1129F-2018-05-30-bayesian-baby-steps-intro-with-juju/1/726F3652B203800/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/45C1129F-2018-05-30-bayesian-baby-steps-intro-with-juju/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/F4B633A8-2018-07-04-bayesian-baby-steps-normal-next-steps/1/726F36524B15C832/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/F4B633A8-2018-07-04-bayesian-baby-steps-normal-next-steps/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 .Rproj.user/shared/notebooks/paths
+ create mode 100644 config.toml
+ create mode 100644 content/.DS_Store
+ create mode 100644 content/home/about.md
+ create mode 100644 content/home/baseballworkshop.md
+ create mode 100644 content/home/contact.md
+ create mode 100644 content/home/posts.md
+ create mode 100644 content/home/software.md
+ create mode 100644 content/home/talks.md
+ create mode 100644 content/post/2018-05-20-firstpost-rmd.md
+ create mode 100644 content/post/2018-05-30-bayesian-baby-steps-intro-with-juju.Rmd
+ create mode 100644 content/post/2018-05-30-bayesian-baby-steps-intro-with-juju.html
+ create mode 100644 content/post/2018-07-04-bayesian-baby-steps-normal-next-steps.Rmd
+ create mode 100644 content/post/2018-07-04-bayesian-baby-steps-normal-next-steps.html
+ create mode 100644 content/post/_index.md
+ create mode 100644 content/project/fcscrapR_project.md
+ create mode 100644 content/project/nflWAR_project.md
+ create mode 100644 content/project/nflscrapR_project.md
+ create mode 100644 content/publication/_index.md
+ create mode 100644 content/tags/academic/_index.md
+ create mode 100644 content/talk/.DS_Store
+ create mode 100644 content/talk/_index.md
+ create mode 100644 content/talk/csada.md
+ create mode 100644 content/talk/glsac.md
+ create mode 100644 content/talk/nflWAR.md
+ create mode 100644 content/talk/vscc.md
+ create mode 100644 index.Rmd
+ create mode 100644 public/.DS_Store
+ create mode 100644 public/404.html
+ create mode 100644 public/categories/.DS_Store
+ create mode 100644 public/categories/index.xml
+ create mode 100644 public/categories/r/index.html
+ create mode 100644 public/categories/r/index.xml
+ create mode 100644 public/categories/r/page/1/index.html
+ create mode 100644 public/css/highlight.min.css
+ create mode 100644 public/css/hugo-academic.css
+ create mode 100644 public/home/index.xml
+ create mode 100644 public/img/.DS_Store
+ create mode 100644 public/img/Ggjoy_passing.png
+ create mode 100644 public/img/apple-touch-icon.png
+ create mode 100644 public/img/boards.jpg
+ create mode 100644 public/img/bubbles.jpg
+ create mode 100644 public/img/conference_banner.jpg
+ create mode 100644 public/img/goal_distr.png
+ create mode 100644 public/img/headers/Epa_wrec_rec.png
+ create mode 100644 public/img/headers/bubbles-wide.jpg
+ create mode 100644 public/img/headers/getting-started.png
+ create mode 100755 public/img/headers/oliveoil_search_grid.jpeg
+ create mode 100644 public/img/icon.png
+ create mode 100644 public/img/personal_photo.jpg
+ create mode 100644 public/img/portrait.jpg
+ create mode 100644 public/img/qb_war_sims.jpeg
+ create mode 100644 public/index.html
+ create mode 100644 public/index.xml
+ create mode 100644 public/js/hugo-academic.js
+ create mode 100644 public/pdf/.DS_Store
+ create mode 100755 public/pdf/CS_2017_final.pdf
+ create mode 100644 public/pdf/CS_2018.pdf
+ create mode 100644 public/pdf/CV.pdf
+ create mode 100644 public/pdf/NESSIS_nflWAR.pdf
+ create mode 100644 public/pdf/SDSS_Variable_Selection.pdf
+ create mode 100644 public/pdf/greatlakes_2017.pdf
+ create mode 100755 public/pdf/init_cv.pdf
+ create mode 100644 public/pdf/nflWAR_JQAS_public.pdf
+ create mode 100644 public/pdf/nflWAR_pitt_class.pdf
+ create mode 100644 public/pdf/update_cv.pdf
+ create mode 100644 public/post/.DS_Store
+ create mode 100644 public/post/2015-07-23-r-rmarkdown.Rmd
+ create mode 100644 public/post/2015-07-23-r-rmarkdown/index.html
+ create mode 100644 public/post/2015-07-23-r-rmarkdown_files/.DS_Store
+ create mode 100644 public/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
+ create mode 100644 public/post/2018-04-06-baseballworkshop-rmd/index.html
+ create mode 100644 public/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-11-1.png
+ create mode 100644 public/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-13-1.png
+ create mode 100644 public/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-14-1.png
+ create mode 100644 public/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-8-1.png
+ create mode 100644 public/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-9-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-12-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-13-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-2-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-5-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-6-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-8-1.png
+ create mode 100644 public/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-9-1.png
+ create mode 100644 public/post/baseball/index.html
+ create mode 100644 public/post/baseballworkshop-rmd/index.html
+ create mode 100644 public/post/baseballworkshop/index.html
+ create mode 100644 public/post/bayesian-baby-steps-intro/index.html
+ create mode 100644 public/post/bayesian-baby-steps-normal-next-steps/index.html
+ create mode 100644 public/post/firstpost/index.html
+ create mode 100644 public/post/getting-started/index.html
+ create mode 100644 public/post/index.html
+ create mode 100644 public/post/index.xml
+ create mode 100644 public/post/managing-content/index.html
+ create mode 100644 public/post/migrate-from-jekyll/index.html
+ create mode 100644 public/post/page/1/index.html
+ create mode 100644 public/post/widgets/index.html
+ create mode 100644 public/post/writing-markdown-latex/index.html
+ create mode 100644 public/posts/baseball/index.html
+ create mode 100644 public/posts/index.html
+ create mode 100644 public/posts/index.xml
+ create mode 100644 public/posts/page/1/index.html
+ create mode 100644 public/project/.DS_Store
+ create mode 100644 public/project/deep-learning/index.html
+ create mode 100644 public/project/example-external-project/index.html
+ create mode 100644 public/project/fcscrapr_project/index.html
+ create mode 100644 public/project/index.xml
+ create mode 100644 public/project/nflscrapr_project/index.html
+ create mode 100644 public/project/nflwar_project/index.html
+ create mode 100644 public/projects/index.html
+ create mode 100644 public/projects/index.xml
+ create mode 100644 public/projects/nflscrapr_project/index.html
+ create mode 100644 public/projects/nflwar_project/index.html
+ create mode 100644 public/projects/page/1/index.html
+ create mode 100644 public/publication/.DS_Store
+ create mode 100644 public/publication/clothing-search/index.html
+ create mode 100644 public/publication/index.html
+ create mode 100644 public/publication/index.xml
+ create mode 100644 public/publication/person-re-identification/index.html
+ create mode 100644 public/publication_types/.DS_Store
+ create mode 100644 public/publication_types/1/index.html
+ create mode 100644 public/publication_types/1/index.xml
+ create mode 100644 public/publication_types/1/page/1/index.html
+ create mode 100644 public/publication_types/2/index.html
+ create mode 100644 public/publication_types/2/index.xml
+ create mode 100644 public/publication_types/2/page/1/index.html
+ create mode 100644 public/publication_types/index.xml
+ create mode 100644 public/research/cs_talk/index.html
+ create mode 100644 public/research/greatlakes_talk/index.html
+ create mode 100644 public/research/index.html
+ create mode 100644 public/research/nessis_talk/index.html
+ create mode 100644 public/research/page/1/index.html
+ create mode 100644 public/sitemap.xml
+ create mode 100644 public/software/index.html
+ create mode 100644 public/software/index.xml
+ create mode 100644 public/software/nflscrapr_project/index.html
+ create mode 100644 public/software/nflwar_project/index.html
+ create mode 100644 public/software/page/1/index.html
+ create mode 100644 public/tags/.DS_Store
+ create mode 100644 public/tags/academic/index.html
+ create mode 100644 public/tags/academic/index.xml
+ create mode 100644 public/tags/academic/page/1/index.html
+ create mode 100644 public/tags/bayes/index.html
+ create mode 100644 public/tags/bayes/index.xml
+ create mode 100644 public/tags/bayes/page/1/index.html
+ create mode 100644 public/tags/deep-learning/index.html
+ create mode 100644 public/tags/deep-learning/index.xml
+ create mode 100644 public/tags/deep-learning/page/1/index.html
+ create mode 100644 public/tags/demo/index.html
+ create mode 100644 public/tags/demo/index.xml
+ create mode 100644 public/tags/demo/page/1/index.html
+ create mode 100644 public/tags/hugo/index.html
+ create mode 100644 public/tags/hugo/index.xml
+ create mode 100644 public/tags/hugo/page/1/index.html
+ create mode 100644 public/tags/index.xml
+ create mode 100644 public/tags/jekyll/index.html
+ create mode 100644 public/tags/jekyll/index.xml
+ create mode 100644 public/tags/jekyll/page/1/index.html
+ create mode 100644 public/tags/plot/index.html
+ create mode 100644 public/tags/plot/index.xml
+ create mode 100644 public/tags/plot/page/1/index.html
+ create mode 100644 public/tags/r-markdown/index.html
+ create mode 100644 public/tags/r-markdown/index.xml
+ create mode 100644 public/tags/r-markdown/page/1/index.html
+ create mode 100644 public/tags/regression/index.html
+ create mode 100644 public/tags/regression/index.xml
+ create mode 100644 public/tags/regression/page/1/index.html
+ create mode 100644 public/talk/.DS_Store
+ create mode 100644 public/talk/cs_talk/index.html
+ create mode 100644 public/talk/csada/index.html
+ create mode 100644 public/talk/example-talk/index.html
+ create mode 100644 public/talk/glsac/index.html
+ create mode 100644 public/talk/greatlakes_talk/index.html
+ create mode 100644 public/talk/index.html
+ create mode 100644 public/talk/index.xml
+ create mode 100644 public/talk/nessis_talk/index.html
+ create mode 100644 public/talk/nflwar/index.html
+ create mode 100644 public/talk/vscc/index.html
+ create mode 100644 public/talks/index.html
+ create mode 100644 public/talks/index.xml
+ create mode 100644 public/talks/nflwar/index.html
+ create mode 100644 public/talks/page/1/index.html
+ create mode 100644 public/talks/vscc/index.html
+ create mode 100644 public/workshops/baseball/index.html
+ create mode 100644 public/workshops/index.html
+ create mode 100644 public/workshops/index.xml
+ create mode 100644 public/workshops/page/1/index.html
+ create mode 100644 static/.DS_Store
+ create mode 100644 static/img/.DS_Store
+ create mode 100644 static/img/Ggjoy_passing.png
+ create mode 100644 static/img/boards.jpg
+ create mode 100644 static/img/bubbles.jpg
+ create mode 100644 static/img/conference_banner.jpg
+ create mode 100644 static/img/goal_distr.png
+ create mode 100644 static/img/headers/Epa_wrec_rec.png
+ create mode 100644 static/img/headers/bubbles-wide.jpg
+ create mode 100644 static/img/headers/getting-started.png
+ create mode 100755 static/img/headers/oliveoil_search_grid.jpeg
+ create mode 100644 static/img/portrait.jpg
+ create mode 100644 static/img/qb_war_sims.jpeg
+ create mode 100644 static/pdf/.DS_Store
+ create mode 100755 static/pdf/CS_2017_final.pdf
+ create mode 100644 static/pdf/CS_2018.pdf
+ create mode 100644 static/pdf/CV.pdf
+ create mode 100644 static/pdf/NESSIS_nflWAR.pdf
+ create mode 100644 static/pdf/SDSS_Variable_Selection.pdf
+ create mode 100644 static/pdf/greatlakes_2017.pdf
+ create mode 100644 static/pdf/nflWAR_JQAS_public.pdf
+ create mode 100644 static/pdf/nflWAR_pitt_class.pdf
+ create mode 100644 static/post/.DS_Store
+ create mode 100644 static/post/2015-07-23-r-rmarkdown_files/.DS_Store
+ create mode 100644 static/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
+ create mode 100644 static/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-11-1.png
+ create mode 100644 static/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-13-1.png
+ create mode 100644 static/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-14-1.png
+ create mode 100644 static/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-8-1.png
+ create mode 100644 static/post/2018-05-30-bayesian-baby-steps-intro-with-juju_files/figure-html/unnamed-chunk-9-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-12-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-13-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-2-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-5-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-6-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-8-1.png
+ create mode 100644 static/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-9-1.png
+ create mode 100644 stats_website.Rproj
+ create mode 100644 themes/.DS_Store
+ create mode 100644 themes/hugo-academic/.DS_Store
+ create mode 100644 themes/hugo-academic/.editorconfig
+ create mode 100644 themes/hugo-academic/LICENSE.md
+ create mode 100644 themes/hugo-academic/README.md
+ create mode 100644 themes/hugo-academic/academic.png
+ create mode 100644 themes/hugo-academic/archetypes/default.md
+ create mode 100644 themes/hugo-academic/archetypes/home.md
+ create mode 100644 themes/hugo-academic/archetypes/post.md
+ create mode 100644 themes/hugo-academic/archetypes/project.md
+ create mode 100644 themes/hugo-academic/archetypes/publication.md
+ create mode 100644 themes/hugo-academic/archetypes/talk.md
+ create mode 100644 themes/hugo-academic/data/i18n/languages.yaml
+ create mode 100644 themes/hugo-academic/data/sri.toml
+ create mode 100644 themes/hugo-academic/exampleSite/.DS_Store
+ create mode 100644 themes/hugo-academic/exampleSite/config.toml
+ create mode 100644 themes/hugo-academic/exampleSite/content/.DS_Store
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/about.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/contact.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/posts.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/projects.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/publications.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/publications_selected.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/talks.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/home/teaching.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/_index.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/getting-started.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/managing-content.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/migrate-from-jekyll.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/widgets.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/post/writing-markdown-latex.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/project/deep-learning.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/project/example-external-project.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/publication/_index.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/publication/clothing-search.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/publication/person-re-identification.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/tags/academic/_index.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/talk/_index.md
+ create mode 100644 themes/hugo-academic/exampleSite/content/talk/example-talk.md
+ create mode 100644 themes/hugo-academic/exampleSite/static/img/boards.jpg
+ create mode 100644 themes/hugo-academic/exampleSite/static/img/bubbles.jpg
+ create mode 100644 themes/hugo-academic/exampleSite/static/img/headers/bubbles-wide.jpg
+ create mode 100644 themes/hugo-academic/exampleSite/static/img/headers/getting-started.png
+ create mode 100644 themes/hugo-academic/exampleSite/static/img/portrait.jpg
+ create mode 100644 themes/hugo-academic/i18n/de.yaml
+ create mode 100644 themes/hugo-academic/i18n/en.yaml
+ create mode 100644 themes/hugo-academic/i18n/es.yaml
+ create mode 100644 themes/hugo-academic/i18n/eu.yaml
+ create mode 100644 themes/hugo-academic/i18n/fr.yaml
+ create mode 100644 themes/hugo-academic/i18n/nl.yaml
+ create mode 100644 themes/hugo-academic/i18n/ru.yaml
+ create mode 100644 themes/hugo-academic/i18n/tr.yaml
+ create mode 100644 themes/hugo-academic/i18n/vi.yaml
+ create mode 100644 themes/hugo-academic/i18n/zh.yaml
+ create mode 100644 themes/hugo-academic/images/screenshot.png
+ create mode 100644 themes/hugo-academic/images/tn.png
+ create mode 100644 themes/hugo-academic/layouts/404.html
+ create mode 100644 themes/hugo-academic/layouts/_default/list.html
+ create mode 100644 themes/hugo-academic/layouts/_default/single.html
+ create mode 100644 themes/hugo-academic/layouts/home/list.html
+ create mode 100644 themes/hugo-academic/layouts/home/single.html
+ create mode 100644 themes/hugo-academic/layouts/index.html
+ create mode 100644 themes/hugo-academic/layouts/partials/article_metadata.html
+ create mode 100644 themes/hugo-academic/layouts/partials/comments.html
+ create mode 100644 themes/hugo-academic/layouts/partials/footer.html
+ create mode 100644 themes/hugo-academic/layouts/partials/footer_container.html
+ create mode 100644 themes/hugo-academic/layouts/partials/head_custom.html
+ create mode 100644 themes/hugo-academic/layouts/partials/header.html
+ create mode 100644 themes/hugo-academic/layouts/partials/header_image.html
+ create mode 100644 themes/hugo-academic/layouts/partials/navbar.html
+ create mode 100644 themes/hugo-academic/layouts/partials/pagination.html
+ create mode 100644 themes/hugo-academic/layouts/partials/post_li.html
+ create mode 100644 themes/hugo-academic/layouts/partials/publication_li_detailed.html
+ create mode 100644 themes/hugo-academic/layouts/partials/publication_li_simple.html
+ create mode 100644 themes/hugo-academic/layouts/partials/publication_links.html
+ create mode 100644 themes/hugo-academic/layouts/partials/section_pager.html
+ create mode 100644 themes/hugo-academic/layouts/partials/share.html
+ create mode 100644 themes/hugo-academic/layouts/partials/talk_li_detailed.html
+ create mode 100644 themes/hugo-academic/layouts/partials/talk_li_simple.html
+ create mode 100644 themes/hugo-academic/layouts/partials/talk_links.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/about.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/contact.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/custom.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/posts.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/projects.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/publications.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/publications_selected.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/talks.html
+ create mode 100644 themes/hugo-academic/layouts/partials/widgets/talks_selected.html
+ create mode 100644 themes/hugo-academic/layouts/project/single.html
+ create mode 100644 themes/hugo-academic/layouts/publication/single.html
+ create mode 100644 themes/hugo-academic/layouts/rss.xml
+ create mode 100644 themes/hugo-academic/layouts/section/home.html
+ create mode 100644 themes/hugo-academic/layouts/section/post.html
+ create mode 100644 themes/hugo-academic/layouts/section/project.html
+ create mode 100644 themes/hugo-academic/layouts/section/publication.html
+ create mode 100644 themes/hugo-academic/layouts/section/talk.html
+ create mode 100644 themes/hugo-academic/layouts/shortcodes/alert.html
+ create mode 100644 themes/hugo-academic/layouts/sitemap.xml
+ create mode 100644 themes/hugo-academic/layouts/talk/single.html
+ create mode 100644 themes/hugo-academic/static/css/highlight.min.css
+ create mode 100644 themes/hugo-academic/static/css/hugo-academic.css
+ create mode 100644 themes/hugo-academic/static/img/apple-touch-icon.png
+ create mode 100644 themes/hugo-academic/static/img/icon.png
+ create mode 100644 themes/hugo-academic/static/img/portrait.jpg
+ create mode 100644 themes/hugo-academic/static/js/hugo-academic.js
+ create mode 100644 themes/hugo-academic/theme.toml
+]0;~/Documents/stats_websiteRons-MacBook-Pro:stats_website ron$ git commit -m "first commit"add .[K[Kcommitpush -u origin masterremote add origin https://github.com/ryurko/stats_website.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[40Ppush -u origin master
+Counting objects: 523, done.
+Delta compression using up to 8 threads.
+Compressing objects:   0% (1/417)   Compressing objects:   1% (5/417)   Compressing objects:   2% (9/417)   Compressing objects:   3% (13/417)   Compressing objects:   4% (17/417)   Compressing objects:   5% (21/417)   Compressing objects:   6% (26/417)   Compressing objects:   7% (30/417)   Compressing objects:   8% (34/417)   Compressing objects:   9% (38/417)   Compressing objects:  10% (42/417)   Compressing objects:  11% (46/417)   Compressing objects:  12% (51/417)   Compressing objects:  13% (55/417)   Compressing objects:  14% (59/417)   Compressing objects:  15% (63/417)   Compressing objects:  16% (67/417)   Compressing objects:  17% (71/417)   Compressing objects:  18% (76/417)   Compressing objects:  19% (80/417)   Compressing objects:  20% (84/417)   Compressing objects:  21% (88/417)   Compressing objects:  22% (92/417)   Compressing objects:  23% (96/417)   Compressing objects:  24% (101/417)   Compressing objects:  25% (105/417)   Compressing objects:  26% (109/417)   Compressing objects:  27% (113/417)   Compressing objects:  28% (117/417)   Compressing objects:  29% (121/417)   Compressing objects:  30% (126/417)   Compressing objects:  31% (130/417)   Compressing objects:  32% (134/417)   Compressing objects:  33% (138/417)   Compressing objects:  34% (142/417)   Compressing objects:  35% (146/417)   Compressing objects:  36% (151/417)   Compressing objects:  37% (155/417)   Compressing objects:  38% (159/417)   Compressing objects:  39% (163/417)   Compressing objects:  40% (167/417)   Compressing objects:  41% (171/417)   Compressing objects:  42% (176/417)   Compressing objects:  43% (180/417)   Compressing objects:  44% (184/417)   Compressing objects:  45% (188/417)   Compressing objects:  46% (192/417)   Compressing objects:  47% (196/417)   Compressing objects:  48% (201/417)   Compressing objects:  49% (205/417)   Compressing objects:  50% (209/417)   Compressing objects:  51% (213/417)   Compressing objects:  52% (217/417)   Compressing objects:  53% (222/417)   Compressing objects:  54% (226/417)   Compressing objects:  55% (230/417)   Compressing objects:  56% (234/417)   Compressing objects:  57% (238/417)   Compressing objects:  58% (242/417)   Compressing objects:  59% (247/417)   Compressing objects:  60% (251/417)   Compressing objects:  61% (255/417)   Compressing objects:  62% (259/417)   Compressing objects:  63% (263/417)   Compressing objects:  64% (267/417)   Compressing objects:  65% (272/417)   Compressing objects:  66% (276/417)   Compressing objects:  67% (280/417)   Compressing objects:  68% (284/417)   Compressing objects:  69% (288/417)   Compressing objects:  70% (292/417)   Compressing objects:  71% (297/417)   Compressing objects:  72% (301/417)   Compressing objects:  73% (305/417)   Compressing objects:  74% (309/417)   Compressing objects:  75% (313/417)   Compressing objects:  76% (317/417)   Compressing objects:  77% (322/417)   Compressing objects:  78% (326/417)   Compressing objects:  79% (330/417)   Compressing objects:  80% (334/417)   Compressing objects:  81% (338/417)   Compressing objects:  82% (342/417)   Compressing objects:  83% (347/417)   Compressing objects:  84% (351/417)   Compressing objects:  85% (355/417)   Compressing objects:  86% (359/417)   Compressing objects:  87% (363/417)   Compressing objects:  88% (367/417)   Compressing objects:  89% (372/417)   Compressing objects:  90% (376/417)   Compressing objects:  91% (380/417)   Compressing objects:  92% (384/417)   Compressing objects:  93% (388/417)   Compressing objects:  94% (392/417)   Compressing objects:  95% (397/417)   Compressing objects:  96% (401/417)   Compressing objects:  97% (405/417)   Compressing objects:  98% (409/417)   Compressing objects:  99% (413/417)   Compressing objects: 100% (417/417)   Compressing objects: 100% (417/417), done.
+Writing objects:   0% (1/523)   Writing objects:   1% (8/523)   Writing objects:   2% (11/523)   Writing objects:   3% (16/523)   Writing objects:   4% (21/523)   Writing objects:   5% (27/523)   Writing objects:   6% (34/523)   Writing objects:   7% (37/523)   Writing objects:   8% (42/523)   Writing objects:   9% (48/523)   Writing objects:  10% (53/523)   Writing objects:  11% (58/523)   Writing objects:  12% (63/523)   Writing objects:  13% (68/523)   Writing objects:  14% (74/523)   Writing objects:  15% (79/523)   Writing objects:  16% (84/523)   Writing objects:  17% (89/523)   Writing objects:  18% (95/523)   Writing objects:  19% (100/523)   Writing objects:  20% (105/523)   Writing objects:  21% (110/523)   Writing objects:  22% (116/523)   Writing objects:  23% (121/523)   Writing objects:  24% (126/523)   Writing objects:  25% (131/523)   Writing objects:  26% (136/523)   Writing objects:  28% (148/523)   Writing objects:  29% (152/523)   Writing objects:  30% (157/523)   Writing objects:  31% (163/523)   Writing objects:  32% (168/523)   Writing objects:  33% (173/523), 1.08 MiB | 1.64 MiB/s   Writing objects:  33% (175/523), 1.08 MiB | 1.64 MiB/s   Writing objects:  33% (175/523), 2.27 MiB | 1.13 MiB/s   Writing objects:  34% (178/523), 2.27 MiB | 1.13 MiB/s   Writing objects:  35% (184/523), 2.27 MiB | 1.13 MiB/s   Writing objects:  35% (186/523), 3.54 MiB | 1.15 MiB/s   Writing objects:  35% (186/523), 4.60 MiB | 1.10 MiB/s   Writing objects:  35% (187/523), 5.56 MiB | 1.18 MiB/s   Writing objects:  35% (187/523), 7.84 MiB | 1.21 MiB/s   Writing objects:  36% (189/523), 7.84 MiB | 1.21 MiB/s   Writing objects:  36% (189/523), 9.34 MiB | 1.43 MiB/s   Writing objects:  36% (191/523), 10.09 MiB | 1.37 MiB/s   Writing objects:  36% (191/523), 12.34 MiB | 1.43 MiB/s   Writing objects:  36% (193/523), 13.85 MiB | 1.42 MiB/s   Writing objects:  36% (193/523), 14.61 MiB | 1.43 MiB/s   Writing objects:  37% (195/523), 14.61 MiB | 1.43 MiB/s   Writing objects:  38% (199/523), 14.61 MiB | 1.43 MiB/s   Writing objects:  39% (204/523), 14.61 MiB | 1.43 MiB/s   Writing objects:  40% (210/523), 15.36 MiB | 1.43 MiB/s   Writing objects:  40% (213/523), 15.36 MiB | 1.43 MiB/s   Writing objects:  41% (215/523), 15.36 MiB | 1.43 MiB/s   Writing objects:  42% (220/523), 16.86 MiB | 1.43 MiB/s   Writing objects:  42% (221/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  43% (226/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  44% (231/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  45% (236/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  46% (241/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  47% (246/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  48% (252/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  49% (257/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  50% (264/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  51% (267/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  52% (272/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  53% (280/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  54% (283/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  55% (288/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  56% (293/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  57% (299/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  58% (304/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  59% (309/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  60% (314/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  61% (320/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  62% (325/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  63% (330/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  64% (335/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  65% (340/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  66% (347/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  67% (351/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  68% (356/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  69% (361/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  70% (367/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  71% (372/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  72% (377/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  73% (382/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  74% (388/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  75% (393/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  76% (398/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  77% (403/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  78% (408/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  79% (415/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  80% (419/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  81% (424/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  82% (429/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  83% (435/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  84% (440/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  85% (445/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  86% (450/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  87% (456/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  88% (464/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  89% (466/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  90% (471/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  91% (476/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  92% (482/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  93% (487/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  94% (492/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  95% (497/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  96% (503/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  97% (508/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  98% (513/523), 17.61 MiB | 1.42 MiB/s   Writing objects:  99% (518/523), 17.61 MiB | 1.42 MiB/s   Writing objects: 100% (523/523), 17.61 MiB | 1.42 MiB/s   Writing objects: 100% (523/523), 18.20 MiB | 1.43 MiB/s, done.
+Total 523 (delta 151), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/151)   [Kremote: Resolving deltas:   7% (11/151)   [Kremote: Resolving deltas:  11% (18/151)   [Kremote: Resolving deltas:  13% (20/151)   [Kremote: Resolving deltas:  14% (22/151)   [Kremote: Resolving deltas:  16% (25/151)   [Kremote: Resolving deltas:  17% (26/151)   [Kremote: Resolving deltas:  20% (31/151)   [Kremote: Resolving deltas:  21% (32/151)   [Kremote: Resolving deltas:  23% (36/151)   [Kremote: Resolving deltas:  25% (39/151)   [Kremote: Resolving deltas:  26% (40/151)   [Kremote: Resolving deltas:  31% (47/151)   [Kremote: Resolving deltas:  52% (80/151)   [Kremote: Resolving deltas:  59% (90/151)   [Kremote: Resolving deltas:  67% (102/151)   [Kremote: Resolving deltas:  68% (103/151)   [Kremote: Resolving deltas:  69% (105/151)   [Kremote: Resolving deltas:  70% (106/151)   [Kremote: Resolving deltas:  72% (109/151)   [Kremote: Resolving deltas:  83% (126/151)   [Kremote: Resolving deltas:  84% (127/151)   [Kremote: Resolving deltas:  87% (132/151)   [Kremote: Resolving deltas:  88% (133/151)   [Kremote: Resolving deltas:  94% (142/151)   [Kremote: Resolving deltas:  95% (144/151)   [Kremote: Resolving deltas:  96% (145/151)   [Kremote: Resolving deltas:  98% (148/151)   [Kremote: Resolving deltas:  99% (150/151)   [Kremote: Resolving deltas: 100% (151/151)   [Kremote: Resolving deltas: 100% (151/151), done.[K
+To https://github.com/ryurko/stats_website.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+git push -u origin mastercommit -m "first commit"add .[K

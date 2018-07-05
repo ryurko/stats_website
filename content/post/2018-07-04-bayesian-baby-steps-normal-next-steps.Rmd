@@ -110,17 +110,25 @@ first demonstrate quadratic approximation by just modeling the score differentia
 with a Gaussian. First step is to visualize the score differential distribution:
 
 ```{r, warning = FALSE, message = FALSE, fig.align="center", fig.width = 8, fig.height = 6}
-# Visualize the distribution with the points colored by year:
-ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
+# Create a histogram displaying the score differential distribution using
+# the the density instead so it's consistent for later: (also why I'm assigning
+# it to a variable name, so we can add our approximated posterior layer later)
+score_diff_hist <- team_summary_df %>%
+  ggplot(aes(x = Total_Score_Diff)) +
   geom_histogram(aes(y = ..density..), bins = 20) + theme_bw() + 
   scale_x_continuous(limits = c(-300, 300)) +
-  labs(x = "Score differential", y = "Count",
+  # Always label:
+  labs(x = "Score differential", y = "Density",
        title = "Distribution of individual team score differential in each season from 2009-17 ",
        caption = "Data accessed with nflscrapR") +
+  # Just some cosmetic settings: (really should do a custom theme at the 
+  # beginning instead of repeating this)
   theme(axis.text = element_text(size = 10),
         axis.title = element_text(size = 12),
         plot.title = element_text(size = 14))
 
+# Display the plot
+score_diff_hist
 ```
 
 From this histogram we have support for using a Gaussian, since it's roughly 
@@ -292,22 +300,10 @@ sim_score_diff_data <- data.frame(Total_Score_Diff =
                                     rnorm(10000, mean = init_samples$mu,
                                           sd = init_samples$sigma))
 
-# Now generate the histogram from before but now add this simulated density
-# on top:
-ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
-  # Specifying y = ..density.. uses density instead of counts
-  geom_histogram(aes(y = ..density..), bins = 20) + 
-  # Add the density curve
-  geom_density(data = sim_score_diff_data, 
-               aes(x = Total_Score_Diff), fill = NA, color = "darkblue") +
-  scale_x_continuous(limits = c(-300, 300)) +
-  theme_bw() + 
-  theme(axis.text = element_text(size = 10),
-        axis.title = element_text(size = 12),
-        plot.title = element_text(size = 14)) +
-  labs(x = "Score differential", y = "Count",
-       title = "Distribution of individual team score differential in each season from 2009-17 ",
-       caption = "Data accessed with nflscrapR")
+# Create the histogram from before but now add this posterior density on top:
+score_diff_hist + geom_density(data = sim_score_diff_data,
+                               aes(x = Total_Score_Diff), 
+                               fill = NA, color = "darkblue")
 
 ```
 
@@ -452,10 +448,14 @@ joint_score_plot <- ggplot(team_summary_df,
        y = "Rushing EPA/Attempt differential",
        color = "Regular season\nscore differential",
        title = "Joint distribution of passing and rushing efficiency differentials\ncolored by regular season score differential") +
+  # Make the color scale go from darkorange (bad) to midpoint gray (usually 
+  # associate white with missing) to darkblue (good):
   scale_color_gradient2(low = "darkorange", mid = "gray", high = "darkblue",
                         midpoint = 0) +
+  # Add dashed red lines through the origin:
   geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  # Add some text for the different quadrants for ease of reading:
   annotate("text", label = "Better pass,\nbetter run", x = .30, y = .28,
            size = 5, color = "darkred") +
   annotate("text", label = "Better pass,\nworse run", x = .30, y = -.15,
@@ -469,13 +469,13 @@ joint_score_plot <- ggplot(team_summary_df,
         axis.title = element_text(size = 12),
         plot.title = element_text(size = 16))
 
-
+# Make passing marginal along x axis:
 pass_dens <- axis_canvas(joint_score_plot, axis = "x") +
   geom_density(data = team_summary_df, aes(x = pass_epa_diff), 
                fill = "darkblue",
                alpha = 0.5, size = .2)
 
-# Same thing for sigma but along y and with coord_flip = TRUE to make it vertical:
+# Same thing for rushing but along y and with coord_flip = TRUE to make it vertical:
 rush_dens <- axis_canvas(joint_score_plot, axis = "y", coord_flip = TRUE) +
   geom_density(data = team_summary_df, aes(x = rush_epa_diff), 
                fill = "darkblue",

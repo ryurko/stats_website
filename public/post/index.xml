@@ -100,16 +100,25 @@ team_summary_df &amp;lt;- get_season_summary(2009:2017)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Before going into the regression example with a predictor, it’s worthwhile to
 first demonstrate quadratic approximation by just modeling the score differential
 with a Gaussian. First step is to visualize the score differential distribution:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Visualize the distribution with the points colored by year:
-ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Create a histogram displaying the score differential distribution using
+# the the density instead so it&amp;#39;s consistent for later: (also why I&amp;#39;m assigning
+# it to a variable name, so we can add our approximated posterior layer later)
+score_diff_hist &amp;lt;- team_summary_df %&amp;gt;%
+  ggplot(aes(x = Total_Score_Diff)) +
   geom_histogram(aes(y = ..density..), bins = 20) + theme_bw() + 
   scale_x_continuous(limits = c(-300, 300)) +
-  labs(x = &amp;quot;Score differential&amp;quot;, y = &amp;quot;Count&amp;quot;,
+  # Always label:
+  labs(x = &amp;quot;Score differential&amp;quot;, y = &amp;quot;Density&amp;quot;,
        title = &amp;quot;Distribution of individual team score differential in each season from 2009-17 &amp;quot;,
        caption = &amp;quot;Data accessed with nflscrapR&amp;quot;) +
+  # Just some cosmetic settings: (really should do a custom theme at the 
+  # beginning instead of repeating this)
   theme(axis.text = element_text(size = 10),
         axis.title = element_text(size = 12),
-        plot.title = element_text(size = 14))&lt;/code&gt;&lt;/pre&gt;
+        plot.title = element_text(size = 14))
+
+# Display the plot
+score_diff_hist&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;768&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From this histogram we have support for using a Gaussian, since it’s roughly
 symmetric and unimodal. Also, since an observed &lt;em&gt;season&lt;/em&gt; score differential is the
@@ -262,22 +271,10 @@ sim_score_diff_data &amp;lt;- data.frame(Total_Score_Diff =
                                     rnorm(10000, mean = init_samples$mu,
                                           sd = init_samples$sigma))
 
-# Now generate the histogram from before but now add this simulated density
-# on top:
-ggplot(team_summary_df, aes(x = Total_Score_Diff)) +
-  # Specifying y = ..density.. uses density instead of counts
-  geom_histogram(aes(y = ..density..), bins = 20) + 
-  # Add the density curve
-  geom_density(data = sim_score_diff_data, 
-               aes(x = Total_Score_Diff), fill = NA, color = &amp;quot;darkblue&amp;quot;) +
-  scale_x_continuous(limits = c(-300, 300)) +
-  theme_bw() + 
-  theme(axis.text = element_text(size = 10),
-        axis.title = element_text(size = 12),
-        plot.title = element_text(size = 14)) +
-  labs(x = &amp;quot;Score differential&amp;quot;, y = &amp;quot;Count&amp;quot;,
-       title = &amp;quot;Distribution of individual team score differential in each season from 2009-17 &amp;quot;,
-       caption = &amp;quot;Data accessed with nflscrapR&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+# Create the histogram from before but now add this posterior density on top:
+score_diff_hist + geom_density(data = sim_score_diff_data,
+                               aes(x = Total_Score_Diff), 
+                               fill = NA, color = &amp;quot;darkblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://www.stat.cmu.edu/~ryurko/~ryurko/post/2018-07-04-bayesian-baby-steps-normal-next-steps_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;768&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Not bad, but then again this was a pretty easy example. You could also
 use the grid approximation from the last post to accomplish the same task but
@@ -408,10 +405,14 @@ joint_score_plot &amp;lt;- ggplot(team_summary_df,
        y = &amp;quot;Rushing EPA/Attempt differential&amp;quot;,
        color = &amp;quot;Regular season\nscore differential&amp;quot;,
        title = &amp;quot;Joint distribution of passing and rushing efficiency differentials\ncolored by regular season score differential&amp;quot;) +
+  # Make the color scale go from darkorange (bad) to midpoint gray (usually 
+  # associate white with missing) to darkblue (good):
   scale_color_gradient2(low = &amp;quot;darkorange&amp;quot;, mid = &amp;quot;gray&amp;quot;, high = &amp;quot;darkblue&amp;quot;,
                         midpoint = 0) +
+  # Add dashed red lines through the origin:
   geom_vline(xintercept = 0, linetype = &amp;quot;dashed&amp;quot;, color = &amp;quot;red&amp;quot;) +
   geom_hline(yintercept = 0, linetype = &amp;quot;dashed&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  # Add some text for the different quadrants for ease of reading:
   annotate(&amp;quot;text&amp;quot;, label = &amp;quot;Better pass,\nbetter run&amp;quot;, x = .30, y = .28,
            size = 5, color = &amp;quot;darkred&amp;quot;) +
   annotate(&amp;quot;text&amp;quot;, label = &amp;quot;Better pass,\nworse run&amp;quot;, x = .30, y = -.15,
@@ -425,13 +426,13 @@ joint_score_plot &amp;lt;- ggplot(team_summary_df,
         axis.title = element_text(size = 12),
         plot.title = element_text(size = 16))
 
-
+# Make passing marginal along x axis:
 pass_dens &amp;lt;- axis_canvas(joint_score_plot, axis = &amp;quot;x&amp;quot;) +
   geom_density(data = team_summary_df, aes(x = pass_epa_diff), 
                fill = &amp;quot;darkblue&amp;quot;,
                alpha = 0.5, size = .2)
 
-# Same thing for sigma but along y and with coord_flip = TRUE to make it vertical:
+# Same thing for rushing but along y and with coord_flip = TRUE to make it vertical:
 rush_dens &amp;lt;- axis_canvas(joint_score_plot, axis = &amp;quot;y&amp;quot;, coord_flip = TRUE) +
   geom_density(data = team_summary_df, aes(x = rush_epa_diff), 
                fill = &amp;quot;darkblue&amp;quot;,
@@ -579,14 +580,14 @@ But we do see that passing has a greater effect, in fact &lt;strong&gt;there’s
 between the passing and rushing distributions&lt;/strong&gt;.
 Now these &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; values are quite large due to the actual values
 for the &lt;span class=&#34;math inline&#34;&gt;\(EPA/Att\)&lt;/span&gt; differentials, with the medians for &lt;span class=&#34;math inline&#34;&gt;\(\beta_P\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta_R\)&lt;/span&gt; at
-490.448 and
-315.0773 respectively. To make this
+490.5058 and
+314.6918 respectively. To make this
 simpler and more realistic from point of view of gaining an advantage: a 0.05
 increase in a team’s passing &lt;span class=&#34;math inline&#34;&gt;\(EPA/Att\)&lt;/span&gt; differential is associated with a
-24.5224 increase in their expected
+24.5253 increase in their expected
 score differential (using the posterior distribution median). Meanwhile a 0.05
 increase in a team’s rushing &lt;span class=&#34;math inline&#34;&gt;\(EPA/Att\)&lt;/span&gt; differential is associated with a
-15.7539 increase in their expected
+15.7346 increase in their expected
 score differential. So if you’re in a front office and wondering how to allocate
 your resources, improving your pass offense/defense is more worthwhile
 than improving in your run offense/defense.&lt;/p&gt;
@@ -767,7 +768,7 @@ catch and D stand for drop. We could carry out this procedure any number of
 times, for instance we could record the following ten pass attempts to our
 receiver:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sample(c(&amp;quot;C&amp;quot;, &amp;quot;D&amp;quot;), size = 10, replace = TRUE)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;C&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot; &amp;quot;D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can describe the &lt;em&gt;story&lt;/em&gt; for this &lt;em&gt;data generating process&lt;/em&gt; quite easily,
 informing us how to simulate new data. In this case:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
