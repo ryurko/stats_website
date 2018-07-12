@@ -36,7 +36,7 @@ I started my PhD in  the [Department of Statistics & Data Science](http://www.st
 
 Currently, I am working with [Rebecca Nugent](http://www.stat.cmu.edu/~rnugent/PUBLIC/) on the reproducibility of data science workflows, aka the science of data science. For my Advanced Data Analysis project I am analyzing the text and actions of students in an introductory stats & data science course to understand how students learn statistics. Additionally, I'm working on variable selection for consistent clustering and clustering/classification work on ensemble prediction.
 
-I became fascinated with statistics because of baseball and fantasy football. [Sam Ventura](http://www.stat.cmu.edu/~sventura/), [Max Horowitz](https://twitter.com/bklynmaks), and myself are developing new, and [reproducible, advanced metrics for the NFL](pdf/nflWAR_JQAS_public.pdf). As an undergrad, I was a founding member of the [Carnegie Mellon Sports Analytics club](http://www.cmusportsanalytics.com/). 
+I became fascinated with statistics because of baseball and fantasy football. [Sam Ventura](http://www.stat.cmu.edu/~sventura/), [Max Horowitz](https://twitter.com/bklynmaks), and myself are developing new, and [reproducible, advanced metrics for the NFL](pdf/nflWAR.pdf). As an undergrad, I was a founding member of the [Carnegie Mellon Sports Analytics club](http://www.cmusportsanalytics.com/). 
 
 I'm also a member of our department's [Teaching Statistics research group](http://www.stat.cmu.edu/teachstat/#home).
 

@@ -10,7 +10,7 @@ location = "Harvard University"
 selected = false
 math = true
 
-url_pdf = "pdf/nflWAR_JQAS_public.pdf"
+url_pdf = "pdf/nflWAR.pdf"
 url_slides = "pdf/NESSIS_nflWAR.pdf"
 url_video = "https://www.youtube.com/watch?v=djD-yL3vWNQ"
 url_custom = [{name = "Pitt talk", url = "pdf/nflWAR_pitt_class.pdf"}]
